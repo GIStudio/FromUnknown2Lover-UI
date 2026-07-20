@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Build Agent characters from the bundled RPG Urban sprite series." data-i18n-content="character.metaDescription" />
+    <title>Common Ground · Character Foundry</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./characters.css" />
+  </head>
+  <body class="character-body">
+    <div class="noise" aria-hidden="true"></div>
+    <main class="character-shell">
+      <header class="character-topbar">
+        <div class="character-brand">
+          <a class="back-link" href="./index.html" aria-label="Back to Agent replay" data-i18n-aria-label="character.back">←</a>
+          <div>
+            <p class="eyebrow">COMMON GROUND / CHARACTER SYSTEM 01</p>
+            <h1 data-i18n="character.title">CHARACTER FOUNDRY</h1>
+          </div>
+        </div>
+        <nav class="character-nav" aria-label="Character tools navigation" data-i18n-aria-label="character.navAria">
+          <div class="language-switch" role="group" data-i18n-aria-label="language.label" aria-label="Interface language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <button type="button" data-language="zh" aria-pressed="false">中文</button>
+          </div>
+          <a href="./index.html" data-i18n="character.viewer">Agent replay</a>
+          <a href="./editor.html" data-i18n="character.mapEditor">Map editor</a>
+        </nav>
+      </header>
+
+      <section class="character-layout">
+        <aside class="identity-panel foundry-panel">
+          <header class="foundry-heading">
+            <span>01</span>
+            <div><strong data-i18n="character.identity">IDENTITY CARD</strong><small data-i18n="character.identityHint">The Agent ID connects this preset to a replay character</small></div>
+          </header>
+          <form id="character-form" class="identity-form">
+            <label><span data-i18n="character.field.id">Agent ID</span><input id="character-id" name="id" type="number" min="1" value="1" /></label>
+            <label><span data-i18n="character.field.name">Display name</span><input id="character-name" name="name" type="text" value="Agent 1" /></label>
+            <label><span data-i18n="character.field.role">Role</span><input id="character-role" name="role" type="text" value="participant" /></label>
+            <label><span data-i18n="character.field.gender">Gender metadata</span>
+              <select id="character-gender" name="gender">
+                <option value="female" data-i18n="character.gender.female">Female</option>
+                <option value="male" data-i18n="character.gender.male">Male</option>
+                <option value="neutral" data-i18n="character.gender.neutral">Neutral / unspecified</option>
+              </select>
+            </label>
+          </form>
+          <div class="identity-actions">
+            <button id="randomize-character" type="button" data-i18n="character.randomize">Randomize</button>
+            <button class="primary-action" id="save-character" type="button" data-i18n="character.save">Save local preset</button>
+            <button class="danger-action" id="remove-character" type="button" data-i18n="character.remove">Remove preset</button>
+          </div>
+          <footer class="source-note" data-i18n="character.source">Kenney RPG Urban · CC0 · sprite-1 … sprite-6</footer>
+        </aside>
+
+        <section class="preview-panel foundry-panel">
+          <header class="foundry-heading">
+            <span>02</span>
+            <div><strong data-i18n="character.preview">LIVE PREVIEW</strong><small data-i18n="character.previewHint">Original 16px tile · enlarged with nearest-neighbour pixels</small></div>
+          </header>
+          <div class="character-stage">
+            <div class="preview-grid" aria-hidden="true"></div>
+            <span class="preview-shadow" aria-hidden="true"></span>
+            <span class="character-preview-sprite" id="character-preview-sprite" role="img" aria-label="Character preview"></span>
+            <span class="preview-id" id="preview-id">#001 / sprite-1</span>
+          </div>
+          <div class="preview-controls">
+            <label class="animate-toggle"><input id="animate-character" type="checkbox" checked /><span data-i18n="character.animate">Animate three frames</span></label>
+            <fieldset>
+              <legend data-i18n="character.frame">FRAME</legend>
+              <div class="segmented-control" id="frame-controls"></div>
+            </fieldset>
+            <fieldset>
+              <legend data-i18n="character.direction">FACING</legend>
+              <div class="direction-control" id="direction-controls"></div>
+            </fieldset>
+          </div>
+        </section>
+
+        <aside class="library-panel foundry-panel">
+          <header class="foundry-heading">
+            <span>03</span>
+            <div><strong data-i18n="character.library">SPRITE SERIES</strong><small data-i18n="character.libraryHint">Six complete 4-direction × 3-frame characters from RPG Urban</small></div>
+          </header>
+          <div class="series-grid" id="series-grid"></div>
+          <section class="json-panel">
+            <div class="json-heading"><strong data-i18n="character.output">CHARACTER JSON</strong><span id="tile-readout">TILE 0051</span></div>
+            <pre id="character-json"></pre>
+            <div class="json-actions">
+              <button id="copy-character" type="button" data-i18n="character.copy">Copy JSON</button>
+              <button id="download-character" type="button" data-i18n="character.download">Download JSON</button>
+            </div>
+          </section>
+          <section class="roster-panel">
+            <strong data-i18n="character.roster">LOCAL ROSTER</strong>
+            <div class="roster-list" id="roster-list"></div>
+          </section>
+        </aside>
+      </section>
+    </main>
+    <div class="toast" id="character-toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./characters.js"></script>
+  </body>
+</html>

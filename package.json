@@ -1,0 +1,12 @@
+{
+  "name": "fromunknown2lover-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone static UI for FromUnknown2Lover spatial encounter replay.",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "test": "node --test tests/*.mjs",
+    "check:map": "python3 -m unittest tests.test_map_data"
+  }
+}

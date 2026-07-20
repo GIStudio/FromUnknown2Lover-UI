@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FromUnknown2Lover Agent replay: a static-first pixel city observation console."
+      data-i18n-content="viewer.metaDescription"
+    />
+    <title>Common Ground · Agent Replay</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span></div>
+          <div>
+            <p class="eyebrow">FROM UNKNOWN → LOVER / FIELD VIEW 01</p>
+            <h1>COMMON GROUND</h1>
+          </div>
+        </div>
+        <div class="run-meta">
+          <span class="signal-dot" aria-hidden="true"></span>
+          <span id="run-name" data-i18n="viewer.loadingSimulation">Loading simulation…</span>
+          <span class="meta-divider">/</span>
+          <span id="agent-count">— AGENTS</span>
+          <div class="language-switch" role="group" data-i18n-aria-label="language.label" aria-label="Interface language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <button type="button" data-language="zh" aria-pressed="false">中文</button>
+          </div>
+          <a class="character-link" href="./characters.html" data-i18n="viewer.characterGenerator">Character generator</a>
+          <a class="editor-link" href="./editor.html" data-i18n="viewer.mapEditor">Map editor</a>
+          <label class="import-button" for="data-file" data-i18n="viewer.importReplay">Import replay JSON</label>
+          <input id="data-file" type="file" accept="application/json,.json" />
+        </div>
+      </header>
+
+      <section class="workspace">
+        <section class="world-panel" aria-label="Agent pixel-city replay" data-i18n-aria-label="viewer.worldAria">
+          <div class="world-toolbar">
+            <div>
+              <span class="location-kicker">BEHAVIOR SETTING</span>
+              <strong id="scene-name" data-i18n="viewer.defaultScene">Youth public-life district</strong>
+            </div>
+            <div class="world-stats">
+              <label class="movement-control" for="movement-mode">
+                <b data-i18n="viewer.flow">FLOW</b>
+                <select id="movement-mode" data-i18n-aria-label="viewer.flowAria" aria-label="Movement trail mode">
+                  <option value="off" data-i18n="viewer.flow.off">Off</option>
+                  <option value="normal" data-i18n="viewer.flow.normal">Normal</option>
+                  <option value="ghost" data-i18n="viewer.flow.ghost">Ghosts</option>
+                  <option value="trail" data-i18n="viewer.flow.trail" selected>Light trail</option>
+                </select>
+              </label>
+              <button class="road-movement-toggle" id="road-movement-button" type="button" aria-pressed="false" title="Route inter-venue movement along roads" data-i18n-title="viewer.roadsTitle">
+                <i aria-hidden="true"></i><span data-i18n="viewer.roads">ROADS</span>
+              </button>
+              <button class="bubble-demo-toggle" id="bubble-demo-button" type="button" aria-pressed="true" title="Play every turn for 2–3 encounters in parallel" data-i18n-title="viewer.bubblesTitle">
+                <i aria-hidden="true"></i><span id="bubble-demo-label">DIALOGUE 1/1 · 1/1</span>
+              </button>
+              <span><b id="step-label">STEP 00</b></span>
+              <span id="time-label">18:00</span>
+              <span id="event-count">0 EVENTS</span>
+            </div>
+          </div>
+
+          <div class="map-key" aria-label="Map legend" data-i18n-aria-label="viewer.legendAria">
+            <span><i class="key-dot mutual"></i><b data-i18n="viewer.legend.mutual">Mutual interaction</b></span>
+            <span><i class="key-dot approach"></i><b data-i18n="viewer.legend.approach">Active approach</b></span>
+            <span><i class="key-dot safety"></i><b data-i18n="viewer.legend.safety">Exit / safety</b></span>
+            <span><i class="key-conversation"></i><b data-i18n="viewer.legend.conversation">Dialogue pair</b></span>
+            <span><i class="key-dot display-only"></i><b data-i18n="viewer.legend.displayOnly">Non-simulation venue</b></span>
+          </div>
+
+          <div class="world" id="world">
+            <div class="world-stage" id="world-stage">
+              <div id="map-layer" aria-label="City district map" data-i18n-aria-label="viewer.mapAria"></div>
+              <div class="movement-layer" id="movement-layer" aria-hidden="true">
+                <svg id="movement-trails" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+                <div id="movement-ghosts"></div>
+              </div>
+              <svg class="relation-layer" id="relation-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+              <div id="agent-layer"></div>
+            </div>
+          </div>
+
+          <div class="timeline-panel">
+            <button class="play-button" id="play-button" type="button" aria-label="Play replay" data-i18n-aria-label="viewer.play">
+              <span class="play-icon">▶</span>
+              <span class="pause-icon">Ⅱ</span>
+            </button>
+            <div class="timeline-main">
+              <div class="timeline-copy">
+                <span id="timeline-title" data-i18n="viewer.observationWindow">Observation window</span>
+                <span id="timeline-position">1 / 1</span>
+              </div>
+              <input id="timeline" type="range" min="0" max="0" value="0" step="1" />
+              <div class="timeline-ticks" id="timeline-ticks"></div>
+            </div>
+            <label class="speed-control">
+              <span>SPEED</span>
+              <select id="speed-select" aria-label="Playback speed" data-i18n-aria-label="viewer.speed">
+                <option value="1800">0.5×</option>
+                <option value="900" selected>1×</option>
+                <option value="450">2×</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <aside class="observation-panel">
+          <section class="agent-card" id="agent-card">
+            <div class="section-heading">
+              <span data-i18n="viewer.focusAgent">FOCUS AGENT</span>
+              <button id="clear-focus" type="button" data-i18n="viewer.clear">CLEAR</button>
+            </div>
+            <div class="focus-empty" id="focus-empty">
+              <div class="focus-reticle" aria-hidden="true"></div>
+              <p data-i18n="viewer.focusPrompt">Select an Agent on the map</p>
+              <small data-i18n="viewer.focusHint">Inspect state, profile and current relationship clues</small>
+            </div>
+            <div class="focus-content" id="focus-content" hidden>
+              <div class="focus-header">
+                <div class="mini-avatar" id="focus-avatar"></div>
+                <div>
+                  <h2 id="focus-name">—</h2>
+                  <p id="focus-role">—</p>
+                </div>
+                <span class="agent-id" id="focus-id">#—</span>
+              </div>
+              <div class="status-strip">
+                <div><span data-i18n="viewer.state">STATE</span><b id="focus-state">—</b></div>
+                <div><span data-i18n="viewer.place">PLACE</span><b id="focus-place">—</b></div>
+              </div>
+              <dl class="profile-grid" id="profile-grid"></dl>
+            </div>
+          </section>
+
+          <section class="event-section">
+            <div class="section-heading">
+              <span data-i18n="viewer.interactionTrace">INTERACTION TRACE</span>
+              <span class="event-filter" data-i18n="viewer.all">ALL</span>
+            </div>
+            <div class="event-list" id="event-list" aria-live="polite"></div>
+          </section>
+
+          <footer class="data-note">
+            <span data-i18n="viewer.data">DATA</span>
+            <p id="data-source">AgentSociety replay adapter / demo dataset</p>
+          </footer>
+        </aside>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

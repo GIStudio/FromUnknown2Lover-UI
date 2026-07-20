@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "title": "COMMON GROUND DISTRICT / RUN 07",
+    "scene": "青年公共生活街区 · 夜间活动带",
+    "description": "18:00—18:40 观察窗口",
+    "source": "Bundled demo · normalized AgentSociety replay contract"
+  },
+  "agents": [
+    {
+      "id": 1,
+      "name": "林澈",
+      "role": "新到访者",
+      "color": "#e0a070",
+      "shirt": "#3d718d",
+      "profile": { "age": 25, "gender": "male", "openness": 0.78, "social_energy": 0.54, "intent": "认识新朋友" }
+    },
+    {
+      "id": 2,
+      "name": "周遥",
+      "role": "固定参与者",
+      "color": "#c98265",
+      "shirt": "#66527d",
+      "profile": { "age": 26, "gender": "female", "openness": 0.71, "social_energy": 0.63, "intent": "随缘交流" }
+    },
+    {
+      "id": 3,
+      "name": "唐米",
+      "role": "活动志愿者",
+      "color": "#efb982",
+      "shirt": "#b45448",
+      "profile": { "age": 24, "gender": "female", "openness": 0.82, "social_energy": 0.76, "intent": "协助活动" }
+    },
+    {
+      "id": 4,
+      "name": "顾言",
+      "role": "新到访者",
+      "color": "#b9795f",
+      "shirt": "#4f7b56",
+      "profile": { "age": 27, "gender": "male", "openness": 0.59, "social_energy": 0.42, "intent": "观看演出" }
+    },
+    {
+      "id": 5,
+      "name": "许柠",
+      "role": "固定参与者",
+      "color": "#d9a782",
+      "shirt": "#a16045",
+      "profile": { "age": 25, "gender": "female", "openness": 0.67, "social_energy": 0.49, "intent": "参加市集" }
+    },
+    {
+      "id": 6,
+      "name": "陈野",
+      "role": "新到访者",
+      "color": "#b96f5d",
+      "shirt": "#405d78",
+      "profile": { "age": 28, "gender": "male", "openness": 0.64, "social_energy": 0.69, "intent": "认识新朋友" }
+    }
+  ],
+  "frames": [
+    {
+      "step": 0,
+      "time": "18:00",
+      "agents": [
+        { "id": 1, "x": 42, "y": 75, "state": "arriving", "place": "主入口" },
+        { "id": 2, "x": 25, "y": 40, "state": "ordering", "place": "咖啡摊" },
+        { "id": 3, "x": 57, "y": 43, "state": "hosting", "place": "中央步道" },
+        { "id": 4, "x": 77, "y": 75, "state": "watching", "place": "小舞台" },
+        { "id": 5, "x": 20, "y": 78, "state": "browsing", "place": "共享花园" },
+        { "id": 6, "x": 71, "y": 31, "state": "walking", "place": "河岸步道" }
+      ]
+    },
+    {
+      "step": 1,
+      "time": "18:05",
+      "agents": [
+        { "id": 1, "x": 47, "y": 67, "state": "orienting", "place": "中央步道" },
+        { "id": 2, "x": 29, "y": 42, "state": "waiting", "place": "咖啡摊" },
+        { "id": 3, "x": 53, "y": 49, "state": "welcoming", "place": "中央步道" },
+        { "id": 4, "x": 75, "y": 73, "state": "watching", "place": "小舞台" },
+        { "id": 5, "x": 24, "y": 75, "state": "browsing", "place": "共享花园" },
+        { "id": 6, "x": 66, "y": 36, "state": "walking", "place": "河岸步道" }
+      ]
+    },
+    {
+      "step": 2,
+      "time": "18:10",
+      "agents": [
+        { "id": 1, "x": 43, "y": 54, "state": "approaching", "place": "中央步道" },
+        { "id": 2, "x": 35, "y": 48, "state": "noticing", "place": "咖啡摊外" },
+        { "id": 3, "x": 55, "y": 52, "state": "hosting", "place": "中央步道" },
+        { "id": 4, "x": 73, "y": 70, "state": "watching", "place": "小舞台" },
+        { "id": 5, "x": 28, "y": 72, "state": "gardening", "place": "共享花园" },
+        { "id": 6, "x": 62, "y": 41, "state": "pausing", "place": "中央步道" }
+      ]
+    },
+    {
+      "step": 3,
+      "time": "18:15",
+      "agents": [
+        { "id": 1, "x": 40, "y": 49, "state": "talking", "place": "咖啡摊外" },
+        { "id": 2, "x": 35, "y": 47, "state": "responding", "place": "咖啡摊外" },
+        { "id": 3, "x": 56, "y": 57, "state": "hosting", "place": "中央步道" },
+        { "id": 4, "x": 70, "y": 68, "state": "watching", "place": "小舞台" },
+        { "id": 5, "x": 32, "y": 72, "state": "gardening", "place": "共享花园" },
+        { "id": 6, "x": 61, "y": 54, "state": "joining activity", "place": "中央步道" }
+      ]
+    },
+    {
+      "step": 4,
+      "time": "18:20",
+      "agents": [
+        { "id": 1, "x": 38, "y": 46, "state": "talking", "place": "咖啡摊外" },
+        { "id": 2, "x": 34, "y": 45, "state": "talking", "place": "咖啡摊外" },
+        { "id": 3, "x": 55, "y": 61, "state": "facilitating", "place": "合作长桌" },
+        { "id": 4, "x": 65, "y": 67, "state": "moving away", "place": "小舞台外缘" },
+        { "id": 5, "x": 40, "y": 70, "state": "joining activity", "place": "合作长桌" },
+        { "id": 6, "x": 60, "y": 59, "state": "cooperating", "place": "合作长桌" }
+      ]
+    },
+    {
+      "step": 5,
+      "time": "18:25",
+      "agents": [
+        { "id": 1, "x": 41, "y": 44, "state": "sharing", "place": "咖啡摊外" },
+        { "id": 2, "x": 35, "y": 44, "state": "sharing", "place": "咖啡摊外" },
+        { "id": 3, "x": 51, "y": 63, "state": "facilitating", "place": "合作长桌" },
+        { "id": 4, "x": 76, "y": 61, "state": "taking space", "place": "河岸步道" },
+        { "id": 5, "x": 45, "y": 67, "state": "cooperating", "place": "合作长桌" },
+        { "id": 6, "x": 58, "y": 64, "state": "cooperating", "place": "合作长桌" }
+      ]
+    },
+    {
+      "step": 6,
+      "time": "18:30",
+      "agents": [
+        { "id": 1, "x": 44, "y": 46, "state": "inviting", "place": "咖啡摊外" },
+        { "id": 2, "x": 38, "y": 45, "state": "considering", "place": "咖啡摊外" },
+        { "id": 3, "x": 53, "y": 66, "state": "observing", "place": "合作长桌" },
+        { "id": 4, "x": 82, "y": 49, "state": "exiting", "place": "河岸出口" },
+        { "id": 5, "x": 47, "y": 65, "state": "talking", "place": "合作长桌" },
+        { "id": 6, "x": 57, "y": 66, "state": "talking", "place": "合作长桌" }
+      ]
+    },
+    {
+      "step": 7,
+      "time": "18:35",
+      "agents": [
+        { "id": 1, "x": 45, "y": 47, "state": "listening", "place": "咖啡摊外" },
+        { "id": 2, "x": 39, "y": 46, "state": "reciprocating", "place": "咖啡摊外" },
+        { "id": 3, "x": 52, "y": 69, "state": "packing", "place": "合作长桌" },
+        { "id": 4, "x": 89, "y": 38, "state": "exited", "place": "河岸出口" },
+        { "id": 5, "x": 49, "y": 63, "state": "talking", "place": "合作长桌" },
+        { "id": 6, "x": 56, "y": 64, "state": "talking", "place": "合作长桌" }
+      ]
+    },
+    {
+      "step": 8,
+      "time": "18:40",
+      "agents": [
+        { "id": 1, "x": 48, "y": 49, "state": "contact exchanged", "place": "咖啡摊外" },
+        { "id": 2, "x": 42, "y": 48, "state": "contact exchanged", "place": "咖啡摊外" },
+        { "id": 3, "x": 51, "y": 73, "state": "closing session", "place": "合作长桌" },
+        { "id": 4, "x": 93, "y": 28, "state": "exited", "place": "场外" },
+        { "id": 5, "x": 51, "y": 61, "state": "positive closure", "place": "合作长桌" },
+        { "id": 6, "x": 56, "y": 62, "state": "positive closure", "place": "合作长桌" }
+      ]
+    }
+  ],
+  "events": [
+    { "id": "e1", "step": 1, "time": "18:05", "source": 3, "target": 1, "type": "welcome", "content": "如果第一次来，可以先从合作卡片开始。", "place": "中央步道", "tone": "approach" },
+    { "id": "e2", "step": 2, "time": "18:10", "source": 1, "target": 2, "type": "greeting", "content": "你也在等手冲吗？这个摊位好像很受欢迎。", "place": "咖啡摊外", "tone": "approach" },
+    { "id": "e3", "step": 3, "time": "18:15", "source": 2, "target": 1, "type": "reciprocal_reply", "content": "对，我每周都来。你第一次参加这个夜市？", "place": "咖啡摊外", "tone": "mutual" },
+    { "id": "e4", "step": 4, "time": "18:20", "source": 4, "target": 3, "type": "decline", "content": "谢谢邀请，我想先自己看一会儿演出。", "place": "小舞台外缘", "tone": "safety" },
+    { "id": "e5", "step": 5, "time": "18:25", "source": 6, "target": 5, "type": "cooperation", "content": "我们把这组灯串挂到长桌另一边吧？", "place": "合作长桌", "tone": "approach" },
+    { "id": "e6", "step": 5, "time": "18:25", "source": 5, "target": 6, "type": "reciprocal_reply", "content": "好，我扶梯子，你来固定。", "place": "合作长桌", "tone": "mutual" },
+    { "id": "e7", "step": 6, "time": "18:30", "source": 1, "target": 2, "type": "continuation_invite", "content": "下周的露天电影你也会来吗？可以一起坐。", "place": "咖啡摊外", "tone": "approach" },
+    { "id": "e8", "step": 7, "time": "18:35", "source": 2, "target": 1, "type": "mutual_interest", "content": "会。那我们留个联系方式，到时候确认？", "place": "咖啡摊外", "tone": "mutual" },
+    { "id": "e9", "step": 8, "time": "18:40", "source": 1, "target": 2, "type": "contact_exchange", "content": "双方同意交换联系方式。", "place": "咖啡摊外", "tone": "mutual" }
+  ]
+}

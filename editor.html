@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Common Ground pixel-city map editor" data-i18n-content="editor.metaDescription" />
+    <title>Common Ground · Map Workshop</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./editor.css" />
+  </head>
+  <body class="editor-body">
+    <div class="noise" aria-hidden="true"></div>
+    <main class="editor-shell">
+      <header class="editor-topbar">
+        <div class="editor-brand">
+          <a class="back-link" href="./index.html" aria-label="Back to Agent replay" data-i18n-aria-label="editor.back">←</a>
+          <div>
+            <p class="eyebrow">COMMON GROUND / MAP WORKSHOP 01</p>
+            <h1 data-i18n="editor.title">DISTRICT WORKSHOP</h1>
+          </div>
+        </div>
+        <div class="editor-actions" role="toolbar" aria-label="Map file operations" data-i18n-aria-label="editor.fileOperations">
+          <div class="language-switch" role="group" data-i18n-aria-label="language.label" aria-label="Interface language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <button type="button" data-language="zh" aria-pressed="false">中文</button>
+          </div>
+          <button id="undo-button" type="button" data-i18n="editor.undo">Undo</button>
+          <button id="redo-button" type="button" data-i18n="editor.redo">Redo</button>
+          <span class="toolbar-divider"></span>
+          <a class="editor-nav-link" href="./characters.html" data-i18n="viewer.characterGenerator">Character generator</a>
+          <label class="editor-file-button" for="map-file" data-i18n="editor.importJson">Import JSON</label>
+          <input id="map-file" type="file" accept="application/json,.json" />
+          <button id="export-button" type="button" data-i18n="editor.downloadMap">Download map.json</button>
+          <button id="reset-button" type="button" data-i18n="editor.restoreDefault">Restore default</button>
+          <button class="accent-action" id="preview-button" type="button" data-i18n="editor.preview">Viewer preview ↗</button>
+        </div>
+      </header>
+
+      <section class="editor-layout">
+        <aside class="palette-panel" aria-label="Map asset panel" data-i18n-aria-label="editor.paletteAria">
+          <div class="panel-title">
+            <div><span>01</span><strong data-i18n="editor.objectTools">OBJECT TOOLS</strong></div>
+            <small data-i18n="editor.objectHint">Drag to the canvas or click to add at center</small>
+          </div>
+          <div class="semantic-palette" id="semantic-palette"></div>
+
+          <div class="panel-title asset-title">
+            <div><span>02</span><strong data-i18n="editor.pixelAssets">PIXEL ASSETS</strong></div>
+            <small>16PX / CC0</small>
+          </div>
+          <div class="asset-controls">
+            <div class="pack-tabs" id="pack-tabs" role="tablist" aria-label="Asset packs" data-i18n-aria-label="editor.assetPacks"></div>
+            <div class="asset-filter-row">
+              <input id="asset-search" type="search" placeholder="Search tile number" aria-label="Search assets" data-i18n-placeholder="editor.searchPlaceholder" data-i18n-aria-label="editor.searchAria" />
+              <select id="asset-category" aria-label="Asset category" data-i18n-aria-label="editor.categoryAria"></select>
+            </div>
+          </div>
+          <div class="tile-palette" id="tile-palette" aria-live="polite"></div>
+          <footer class="palette-footer">
+            <span id="tile-count">0 TILES</span>
+            <a id="pack-source" href="#" target="_blank" rel="noreferrer">SOURCE ↗</a>
+          </footer>
+        </aside>
+
+        <section class="canvas-panel" aria-label="Map editing canvas" data-i18n-aria-label="editor.canvasAria">
+          <div class="canvas-toolbar">
+            <div class="canvas-status">
+              <span class="signal-dot"></span>
+              <strong id="map-name">MAP LOADING</strong>
+              <span id="object-count">— OBJECTS</span>
+            </div>
+            <div class="canvas-options">
+              <label><input id="snap-toggle" type="checkbox" checked /> <span data-i18n="editor.snap">GRID SNAP</span></label>
+              <label class="zoom-control"><span data-i18n="editor.zoom">ZOOM</span> <input id="zoom-control" type="range" min="50" max="150" value="100" step="10" /><b id="zoom-label">100%</b></label>
+            </div>
+          </div>
+          <div class="canvas-scroll" id="canvas-scroll">
+            <div class="editor-world world world-stage" id="editor-world">
+              <div id="editor-map-layer"></div>
+              <div class="selection-overlay" id="selection-overlay" hidden>
+                <button class="resize-handle nw" data-resize="nw" aria-label="Resize up and left" data-i18n-aria-label="editor.resize.nw"></button>
+                <button class="resize-handle n" data-resize="n" aria-label="Resize up" data-i18n-aria-label="editor.resize.n"></button>
+                <button class="resize-handle ne" data-resize="ne" aria-label="Resize up and right" data-i18n-aria-label="editor.resize.ne"></button>
+                <button class="resize-handle e" data-resize="e" aria-label="Resize right" data-i18n-aria-label="editor.resize.e"></button>
+                <button class="resize-handle se" data-resize="se" aria-label="Resize down and right" data-i18n-aria-label="editor.resize.se"></button>
+                <button class="resize-handle s" data-resize="s" aria-label="Resize down" data-i18n-aria-label="editor.resize.s"></button>
+                <button class="resize-handle sw" data-resize="sw" aria-label="Resize down and left" data-i18n-aria-label="editor.resize.sw"></button>
+                <button class="resize-handle w" data-resize="w" aria-label="Resize left" data-i18n-aria-label="editor.resize.w"></button>
+                <span class="selection-id" id="selection-id"></span>
+              </div>
+            </div>
+          </div>
+          <div class="canvas-hint">
+            <span data-i18n="editor.hint.drag">Drag objects to move</span><span data-i18n="editor.hint.arrows">Arrow keys to nudge</span><span data-i18n="editor.hint.undo">⌘/Ctrl+Z to undo</span><span data-i18n="editor.hint.delete">Delete to remove</span>
+          </div>
+        </section>
+
+        <aside class="inspector-panel" aria-label="Object properties panel" data-i18n-aria-label="editor.inspectorAria">
+          <div class="panel-title">
+            <div><span>03</span><strong data-i18n="editor.inspector">PROPERTY INSPECTOR</strong></div>
+            <small id="selection-kind">NO SELECTION</small>
+          </div>
+          <div class="inspector-empty" id="inspector-empty">
+            <div class="focus-reticle" aria-hidden="true"></div>
+            <p data-i18n="editor.selectPrompt">Select a map object</p>
+            <small data-i18n="editor.selectHint">Edit its position, dimensions, semantics and layer order</small>
+          </div>
+          <form class="inspector-form" id="inspector-form" hidden>
+            <label class="wide-field"><span data-i18n="editor.field.id">Object ID</span><input id="field-id" name="id" type="text" /></label>
+            <div class="field-grid">
+              <label><span data-i18n="editor.field.kind">Kind</span><select id="field-kind" name="kind"></select></label>
+              <label><span data-i18n="editor.field.layer">Layer</span><select id="field-layer" name="layer"></select></label>
+              <label>X<input id="field-x" name="x" type="number" step="0.1" /></label>
+              <label>Y<input id="field-y" name="y" type="number" step="0.1" /></label>
+              <label><span data-i18n="editor.field.width">Width</span><input id="field-width" name="width" type="number" min="1" step="0.1" /></label>
+              <label><span data-i18n="editor.field.height">Height</span><input id="field-height" name="height" type="number" min="1" step="0.1" /></label>
+              <label><span data-i18n="editor.field.z">Z order</span><input id="field-z" name="z" type="number" step="1" /></label>
+              <label><span data-i18n="editor.field.rotation">Rotation</span><select id="field-rotation" name="rotation"><option>0</option><option>90</option><option>180</option><option>270</option></select></label>
+            </div>
+            <label class="wide-field"><span data-i18n="editor.field.variant">Visual variant</span><input id="field-variant" name="variant" type="text" /></label>
+            <label class="wide-field"><span data-i18n="editor.field.labelZh">Chinese label</span><input id="field-label-zh" name="labelZh" type="text" /></label>
+            <label class="wide-field"><span data-i18n="editor.field.labelEn">English label</span><input id="field-label-en" name="labelEn" type="text" /></label>
+            <div class="simulation-fields" id="simulation-fields">
+              <p>SIMULATION MAPPING</p>
+              <label class="wide-field"><span data-i18n="editor.field.simulationStatus">Simulation status</span><select id="field-simulation-status" name="simulationStatus"><option value="display_only" data-i18n="editor.status.displayOnly">Non-simulation venue</option><option value="mapped" data-i18n="editor.status.mapped">Mapped source building</option></select></label>
+              <label class="wide-field"><span data-i18n="editor.field.sourceBuilding">Source building ID</span><input id="field-source-building-id" name="sourceBuildingId" type="text" placeholder="e.g. night_school_building_01" data-i18n-placeholder="editor.sourcePlaceholder" /></label>
+            </div>
+            <div class="asset-readout" id="asset-readout" hidden></div>
+            <div class="inspector-actions">
+              <button id="duplicate-button" type="button" data-i18n="editor.duplicate">Duplicate</button>
+              <button id="rotate-button" type="button" data-i18n="editor.rotate">Rotate 90°</button>
+              <button id="front-button" type="button" data-i18n="editor.front">Bring forward</button>
+              <button id="back-button" type="button" data-i18n="editor.backLayer">Send backward</button>
+              <button class="danger-action" id="delete-button" type="button" data-i18n="editor.delete">Delete object</button>
+            </div>
+          </form>
+          <footer class="draft-status">
+            <span>LOCAL DRAFT</span>
+            <b id="draft-status">Waiting to load…</b>
+          </footer>
+        </aside>
+      </section>
+    </main>
+    <div class="toast" id="editor-toast" role="status" aria-live="polite"></div>
+    <script type="module" src="./editor.js"></script>
+  </body>
+</html>

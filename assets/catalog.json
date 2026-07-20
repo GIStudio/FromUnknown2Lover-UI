@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "packs": [
+    {
+      "id": "kenney-rpg-urban",
+      "name": "RPG Urban Pack",
+      "src": "./assets/kenney-rpg-urban/tilemap.png",
+      "tileSize": 16,
+      "spacing": 1,
+      "columns": 27,
+      "rows": 18,
+      "count": 486,
+      "license": "CC0",
+      "source": "https://kenney.nl/assets/rpg-urban-pack",
+      "groups": [
+        { "id": "terrain", "name": "地面", "ranges": [[0, 80]] },
+        { "id": "architecture", "name": "建筑", "ranges": [[81, 177], [221, 269]] },
+        { "id": "street", "name": "街道设施", "ranges": [[178, 220], [270, 350]] },
+        { "id": "nature", "name": "绿化", "ranges": [[351, 377]] },
+        { "id": "people", "name": "人物", "ranges": [[378, 452]] },
+        { "id": "vehicles", "name": "车辆", "ranges": [[453, 485]] }
+      ]
+    },
+    {
+      "id": "kenney-tiny-town",
+      "name": "Tiny Town",
+      "src": "./assets/kenney-tiny-town/tilemap_packed.png",
+      "tileSize": 16,
+      "spacing": 0,
+      "columns": 12,
+      "rows": 11,
+      "count": 132,
+      "license": "CC0",
+      "source": "https://kenney.nl/assets/tiny-town",
+      "groups": [
+        { "id": "all-town", "name": "城镇", "ranges": [[0, 131]] }
+      ]
+    }
+  ]
+}
