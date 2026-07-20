@@ -30,6 +30,12 @@ import {
   playbackDuration,
   turnDurationFromFrameDelay,
 } from "./encounter-playback.js";
+import {
+  RELATIONSHIP_METRICS,
+  buildRelationshipDashboard,
+  linePath,
+  relationshipPulse,
+} from "./relationship-dashboard.js";
 
 initI18n();
 bindLanguageControls();
@@ -69,6 +75,12 @@ const dom = {
   focusPlace: document.querySelector("#focus-place"),
   profileGrid: document.querySelector("#profile-grid"),
   clearFocus: document.querySelector("#clear-focus"),
+  dashboardSummary: document.querySelector("#dashboard-summary"),
+  dashboardAgentName: document.querySelector("#dashboard-agent-name"),
+  dashboardStage: document.querySelector("#dashboard-stage"),
+  relationshipChart: document.querySelector("#relationship-chart"),
+  dashboardMetrics: document.querySelector("#dashboard-metrics"),
+  relationshipRoster: document.querySelector("#relationship-roster"),
   eventList: document.querySelector("#event-list"),
   dataSource: document.querySelector("#data-source"),
   toast: document.querySelector("#toast"),
@@ -79,6 +91,10 @@ const state = {
   map: null,
   mapRenderer: null,
   replayLayout: null,
+  relationshipDashboard: null,
+  dashboardAgentId: null,
+  relationPulseStep: null,
+  relationPulseStartedAt: 0,
   frameIndex: 0,
   focusedAgentId: null,
   playing: false,
@@ -588,12 +604,144 @@ function buildEventAudit(event) {
   return fragment;
 }
 
+function dashboardSeries(agentId) {
+  return state.relationshipDashboard?.byAgent.get(Number(agentId)) || [];
+}
+
+function dashboardSeriesIndex(series) {
+  return series.findIndex((point) => point.step === currentFrame().step);
+}
+
+function createSvgElement(name) {
+  return document.createElementNS("http://www.w3.org/2000/svg", name);
+}
+
+function renderRelationshipChart(series) {
+  dom.relationshipChart.replaceChildren();
+  dom.relationshipChart.dataset.hasData = String(series.some((point) => point.dyadCount > 0));
+  [18, 50, 82].forEach((y) => {
+    const line = createSvgElement("line");
+    line.setAttribute("x1", "10");
+    line.setAttribute("x2", "236");
+    line.setAttribute("y1", String(y));
+    line.setAttribute("y2", String(y));
+    line.setAttribute("class", "relationship-grid-line");
+    dom.relationshipChart.append(line);
+  });
+  RELATIONSHIP_METRICS.forEach(([metric]) => {
+    const pathData = linePath(series, metric, 246, 104, 10);
+    if (!pathData) return;
+    const path = createSvgElement("path");
+    path.setAttribute("d", pathData);
+    path.setAttribute("class", `relationship-line ${metric}`);
+    path.setAttribute("fill", "none");
+    dom.relationshipChart.append(path);
+  });
+  const index = dashboardSeriesIndex(series);
+  if (index < 0) return;
+  const x = 10 + (series.length <= 1 ? 0.5 : index / (series.length - 1)) * 226;
+  const marker = createSvgElement("line");
+  marker.setAttribute("x1", String(x));
+  marker.setAttribute("x2", String(x));
+  marker.setAttribute("y1", "8");
+  marker.setAttribute("y2", "96");
+  marker.setAttribute("class", "relationship-now-line");
+  dom.relationshipChart.append(marker);
+}
+
+function renderDashboardMetrics(point) {
+  dom.dashboardMetrics.replaceChildren();
+  RELATIONSHIP_METRICS.forEach(([metric, label]) => {
+    const value = percentage(point?.metrics?.[metric]);
+    const metricElement = document.createElement("span");
+    metricElement.className = `dashboard-metric ${metric}`;
+    const name = document.createElement("b");
+    name.textContent = label;
+    const valueElement = document.createElement("em");
+    valueElement.textContent = value === null ? "—" : `${value}%`;
+    metricElement.append(name, valueElement);
+    dom.dashboardMetrics.append(metricElement);
+  });
+}
+
+function renderRelationshipRoster(currentAgentId) {
+  dom.relationshipRoster.replaceChildren();
+  state.data.agents.forEach((agent) => {
+    const series = dashboardSeries(agent.id);
+    const point = series[dashboardSeriesIndex(series)] || series[series.length - 1];
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "relationship-agent-card";
+    card.dataset.agentId = String(agent.id);
+    if (Number(agent.id) === Number(currentAgentId)) card.classList.add("is-selected");
+    const name = document.createElement("strong");
+    name.textContent = agent.name;
+    const stage = document.createElement("span");
+    stage.className = "roster-stage";
+    stage.textContent = point?.dyadCount ? relationshipStageLabel(point.stage) : t("viewer.dashboardNoDyad");
+    const trend = createSvgElement("svg");
+    trend.classList.add("roster-sparkline");
+    trend.setAttribute("viewBox", "0 0 54 16");
+    trend.setAttribute("preserveAspectRatio", "none");
+    const sparkPath = linePath(series, "mutualAttraction", 54, 16, 2);
+    if (sparkPath) {
+      const path = createSvgElement("path");
+      path.setAttribute("d", sparkPath);
+      path.setAttribute("class", "roster-sparkline-path");
+      path.setAttribute("fill", "none");
+      trend.append(path);
+    }
+    const values = document.createElement("span");
+    values.className = "roster-values";
+    values.textContent = RELATIONSHIP_METRICS.map(([metric, label]) => `${label[0]}${percentage(point?.metrics?.[metric]) ?? "—"}`).join(" ");
+    card.append(name, stage, trend, values);
+    card.addEventListener("click", () => {
+      state.dashboardAgentId = agent.id;
+      state.focusedAgentId = agent.id;
+      render();
+    });
+    dom.relationshipRoster.append(card);
+  });
+}
+
+function renderRelationshipDashboard() {
+  if (!state.relationshipDashboard) return;
+  const selectedId = state.focusedAgentId ?? state.dashboardAgentId ?? state.data.agents[0]?.id;
+  const selectedAgent = agentById(selectedId) || state.data.agents[0];
+  if (!selectedAgent) return;
+  state.dashboardAgentId = selectedAgent.id;
+  const series = dashboardSeries(selectedAgent.id);
+  const point = series[dashboardSeriesIndex(series)] || series[series.length - 1];
+  const dyadCount = point?.dyadCount || 0;
+  dom.dashboardSummary.textContent = t("viewer.dashboardSummary", {
+    agents: state.data.agents.length,
+    dyads: dyadCount,
+  });
+  dom.dashboardAgentName.textContent = selectedAgent.name;
+  dom.dashboardStage.textContent = point?.dyadCount ? relationshipStageLabel(point.stage) : t("viewer.dashboardNoDyad");
+  renderRelationshipChart(series);
+  renderDashboardMetrics(point);
+  renderRelationshipRoster(selectedAgent.id);
+}
+
+function relationshipPulseForAgent(agentId) {
+  const elapsed = performance.now() - state.relationPulseStartedAt;
+  if (elapsed > 2400 || state.frameIndex === 0) return null;
+  const series = dashboardSeries(agentId);
+  const index = dashboardSeriesIndex(series);
+  return index > 0 ? relationshipPulse(series, index) : null;
+}
+
 function render() {
   if (!state.data) return;
   const frame = currentFrame();
   const projectedFrame = projectFrame(frame);
   const displayLayout = applyReplayLayout(projectedFrame);
   const currentEvents = eventsAtStep(frame.step);
+  if (state.relationPulseStep !== frame.step) {
+    state.relationPulseStep = frame.step;
+    state.relationPulseStartedAt = performance.now();
+  }
   const currentMovementSnapshot = movementSnapshot(displayLayout.frame);
   const movementPlan = state.movementMode === "off"
     ? []
@@ -617,6 +765,7 @@ function render() {
   dom.timeline.style.setProperty("--timeline-progress", `${progress}%`);
   dom.dataSource.textContent = state.data.meta.source;
 
+  renderRelationshipDashboard();
   renderMovementEffects(movementPlan);
   renderAgents(displayLayout.frame, currentEvents, bubbleState.activeDialogueByAgent, movementPlan);
   renderRelations(displayLayout.frame, currentEvents, displayLayout.conversations);
@@ -672,6 +821,18 @@ function renderAgents(frame, currentEvents, activeDialogueByAgent = new Map(), m
     label.textContent = profile.name;
     button.append(shadow, sprite, label);
 
+    const pulse = relationshipPulseForAgent(profile.id);
+    if (pulse) {
+      const marker = document.createElement("span");
+      marker.className = `relationship-state-bubble is-${pulse.tone}`;
+      marker.dataset.kind = pulse.kind;
+      marker.style.setProperty("--pulse-age", `-${Math.round(performance.now() - state.relationPulseStartedAt)}ms`);
+      marker.textContent = pulse.symbol;
+      marker.title = t(`viewer.pulse.${pulse.kind}`, {}, pulse.kind);
+      marker.setAttribute("aria-label", marker.title);
+      button.append(marker);
+    }
+
     const dialogue = activeDialogueByAgent.get(profile.id);
     if (dialogue) {
       const { event, turn } = dialogue;
@@ -696,6 +857,7 @@ function renderAgents(frame, currentEvents, activeDialogueByAgent = new Map(), m
 
     button.addEventListener("click", () => {
       state.focusedAgentId = profile.id;
+      state.dashboardAgentId = profile.id;
       render();
     });
     dom.agentLayer.append(button);
@@ -919,6 +1081,10 @@ function installData(raw, message = t("viewer.replayLoaded")) {
   clearMovementEffects();
   state.lastMovementSnapshot = null;
   state.data = normalizeData(raw);
+  state.relationshipDashboard = buildRelationshipDashboard(state.data);
+  state.dashboardAgentId = state.data.agents[0]?.id ?? null;
+  state.relationPulseStep = null;
+  state.relationPulseStartedAt = 0;
   rebuildReplayLayout();
   dom.world.classList.toggle("is-dense", state.data.agents.length > 12);
   state.frameIndex = 0;

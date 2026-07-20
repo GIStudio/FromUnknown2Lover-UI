@@ -39,6 +39,34 @@
       </header>
 
       <section class="workspace">
+        <aside class="relationship-dashboard" aria-label="Relationship dashboard" data-i18n-aria-label="viewer.dashboardAria">
+          <div class="dashboard-heading">
+            <span data-i18n="viewer.dashboardTitle">RELATION PULSE</span>
+            <b id="dashboard-summary">—</b>
+          </div>
+          <section class="trajectory-card">
+            <div class="trajectory-heading">
+              <div>
+                <span data-i18n="viewer.dashboardSelected">SELECTED AGENT</span>
+                <strong id="dashboard-agent-name">—</strong>
+              </div>
+              <span class="trajectory-stage" id="dashboard-stage">—</span>
+            </div>
+            <svg class="relationship-chart" id="relationship-chart" viewBox="0 0 246 104" preserveAspectRatio="none" role="img" data-i18n-aria-label="viewer.dashboardChartAria" aria-label="Relationship metric history"></svg>
+            <div class="relationship-chart-key" aria-hidden="true">
+              <span class="fam">FAM</span><span class="trust">TRUST</span><span class="attr">ATTR</span>
+            </div>
+            <div class="dashboard-metrics" id="dashboard-metrics"></div>
+          </section>
+          <section class="relationship-roster-section">
+            <div class="roster-heading">
+              <span data-i18n="viewer.dashboardRoster">ALL AGENTS</span>
+              <small data-i18n="viewer.dashboardHint">Select a card or Agent</small>
+            </div>
+            <div class="relationship-roster" id="relationship-roster"></div>
+          </section>
+        </aside>
+
         <section class="world-panel" aria-label="Agent pixel-city replay" data-i18n-aria-label="viewer.worldAria">
           <div class="world-toolbar">
             <div>

@@ -242,6 +242,32 @@ def assert_step_seven_dialogue_layout(page: Page) -> dict[str, object]:
     }
 
 
+def assert_relationship_dashboard(page: Page) -> dict[str, object]:
+    cards = page.locator("#relationship-roster .relationship-agent-card")
+    assert cards.count() == 30
+    assert page.locator("#relationship-chart .relationship-line").count() == 3
+    default_name = page.locator("#dashboard-agent-name").text_content()
+    assert default_name
+    selected = cards.nth(1)
+    selected_name = selected.locator("strong").text_content()
+    selected.click()
+    assert page.locator("#dashboard-agent-name").text_content() == selected_name
+    assert selected.evaluate("element => element.classList.contains('is-selected')")
+    set_step(page, 0)
+    set_step(page, 1)
+    markers = page.locator("#agent-layer .relationship-state-bubble")
+    assert markers.count() > 0, "A relationship change did not create a temporary state bubble"
+    assert page.locator("#agent-layer .relationship-state-bubble.is-regression").count() > 0, "A relationship regression did not use a black-heart bubble"
+    assert markers.evaluate_all("nodes => nodes.every(node => node.getAttribute('aria-label'))")
+    return {
+        "agents": cards.count(),
+        "selected": selected_name,
+        "lines": page.locator("#relationship-chart .relationship-line").count(),
+        "stateBubbles": markers.count(),
+        "regressionBubbles": page.locator("#agent-layer .relationship-state-bubble.is-regression").count(),
+    }
+
+
 def assert_movement_modes(page: Page, screenshot: Path) -> dict[str, object]:
     movement_select = page.locator("#movement-mode")
     road_toggle = page.locator("#road-movement-button")
@@ -364,6 +390,7 @@ def check_viewer(page: Page, base_url: str, screenshot: Path) -> dict[str, objec
     assert page.locator("#map-layer .map-object.is-display-only").count() == 4
     assert page.locator("#map-layer .non-simulation-badge").count() == 4
     assert_agents_inside_mapped_objects(page)
+    dashboard = assert_relationship_dashboard(page)
     step_seven = assert_step_seven_dialogue_layout(page)
     movement = assert_movement_modes(page, screenshot)
     page.screenshot(path=str(screenshot), full_page=True)
@@ -374,7 +401,7 @@ def check_viewer(page: Page, base_url: str, screenshot: Path) -> dict[str, objec
     assert_stage_fits_world(page)
     page.set_viewport_size({"width": 1440, "height": 1100})
     legacy = check_legacy_replay(page, base_url)
-    return {"stage": stage_box, "legend": legend_box, "mobileStage": mobile_stage, "step13": counts, "step7": step_seven, "movement": movement, "legacyReplay": legacy}
+    return {"stage": stage_box, "legend": legend_box, "mobileStage": mobile_stage, "step13": counts, "dashboard": dashboard, "step7": step_seven, "movement": movement, "legacyReplay": legacy}
 
 
 def check_editor_and_draft(page: Page, base_url: str) -> dict[str, object]:

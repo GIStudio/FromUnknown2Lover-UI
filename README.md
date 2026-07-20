@@ -26,6 +26,12 @@ The three browser surfaces are:
 Use **Import replay JSON** on the replay page to load an exported run locally.
 The file is parsed in the browser and is never uploaded by this module.
 
+The replay view also includes **Relation Pulse**: select an Agent to see their
+current dyads' aggregated familiarity, trust, and mutual-attraction minimum as
+three stepwise lines. Short markers above affected Agents show changes between
+adjacent observed steps. They are a navigational overview only, not a
+continuous emotional trajectory or a substitute for dyad-level analysis.
+
 ## Development and verification
 
 The module has no package dependencies. Node 20+ is required for the unit
