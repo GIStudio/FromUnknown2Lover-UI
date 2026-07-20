@@ -12,8 +12,8 @@ import {
   simulationStatusForObject,
   validateMap,
   worldValueToPercent,
-} from "./map-renderer.js?v=20260720-dashboard-fix";
-import { bindLanguageControls, getLanguage, initI18n, t } from "./i18n.js?v=20260720-dashboard-fix";
+} from "./map-renderer.js?v=20260720-timeline-guide";
+import { bindLanguageControls, getLanguage, initI18n, t } from "./i18n.js?v=20260720-timeline-guide";
 
 initI18n();
 bindLanguageControls();
@@ -200,7 +200,7 @@ function renderEditor({ refreshInspector = true } = {}) {
     state.renderer.setMap(state.map, { selectedId: state.selectedId });
   }
   dom.mapName.textContent = state.map.name || state.map.id;
-  dom.objectCount.textContent = `${state.map.objects.length} OBJECTS`;
+  dom.objectCount.textContent = t("editor.objectCount", { count: state.map.objects.length });
   syncSelectionOverlay();
   if (refreshInspector) syncInspector();
   scheduleDraftSave();
@@ -272,12 +272,17 @@ function syncInspector() {
   const object = selectedObject();
   dom.inspectorEmpty.hidden = Boolean(object);
   dom.inspectorForm.hidden = !object;
-  dom.selectionKind.textContent = object ? `${object.kind.toUpperCase()} / ${object.layer}` : "NO SELECTION";
+  dom.selectionKind.textContent = object
+    ? t("editor.selectionKind", { kind: object.kind.toUpperCase(), layer: object.layer })
+    : t("editor.noSelection");
   if (!object) return;
 
   dom.fieldId.value = object.id;
   fillSelect(dom.fieldKind, ["road", "rail", "crosswalk", "venue", "building", "label", "decor", "sprite"].map((kind) => ({ value: kind, label: kind })), object.kind);
-  fillSelect(dom.fieldLayer, state.map.layers.map((layer) => ({ value: layer.id, label: `${layer.id}${layer.locked ? " · locked" : ""}` })), object.layer);
+  fillSelect(dom.fieldLayer, state.map.layers.map((layer) => ({
+    value: layer.id,
+    label: layer.locked ? t("editor.lockedLayer", { layer: layer.id }) : layer.id,
+  })), object.layer);
   dom.fieldX.value = object.x;
   dom.fieldY.value = object.y;
   dom.fieldWidth.value = object.width;
@@ -295,7 +300,10 @@ function syncInspector() {
   dom.fieldSourceBuildingId.disabled = !semantic;
   dom.assetReadout.hidden = object.kind !== "sprite";
   dom.assetReadout.textContent = object.kind === "sprite"
-    ? `${object.asset?.packId || "unknown"} / TILE ${String(object.asset?.tileIndex ?? "?").padStart(4, "0")}`
+    ? t("editor.spriteReadout", {
+      pack: object.asset?.packId || "unknown",
+      tile: String(object.asset?.tileIndex ?? "?").padStart(4, "0"),
+    })
     : "";
 }
 
@@ -388,7 +396,7 @@ function renderTilePalette() {
     dom.tilePalette.append(button);
   }
 
-  dom.tileCount.textContent = `${shown} / ${pack.count} TILES`;
+  dom.tileCount.textContent = t("editor.tileCount", { shown, total: pack.count });
   dom.packSource.href = pack.source;
 }
 

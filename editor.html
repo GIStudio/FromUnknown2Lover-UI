@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Common Ground pixel-city map editor" data-i18n-content="editor.metaDescription" />
     <title>Common Ground · Map Workshop</title>
-    <link rel="stylesheet" href="./styles.css?v=20260720-dashboard-fix" />
-    <link rel="stylesheet" href="./editor.css?v=20260720-dashboard-fix" />
+    <link rel="stylesheet" href="./styles.css?v=20260720-timeline-guide" />
+    <link rel="stylesheet" href="./editor.css?v=20260720-timeline-guide" />
   </head>
   <body class="editor-body">
     <div class="noise" aria-hidden="true"></div>
@@ -46,7 +46,7 @@
 
           <div class="panel-title asset-title">
             <div><span>02</span><strong data-i18n="editor.pixelAssets">PIXEL ASSETS</strong></div>
-            <small>16PX / CC0</small>
+            <small data-i18n="editor.assetInfo">16PX / CC0</small>
           </div>
           <div class="asset-controls">
             <div class="pack-tabs" id="pack-tabs" role="tablist" aria-label="Asset packs" data-i18n-aria-label="editor.assetPacks"></div>
@@ -58,7 +58,7 @@
           <div class="tile-palette" id="tile-palette" aria-live="polite"></div>
           <footer class="palette-footer">
             <span id="tile-count">0 TILES</span>
-            <a id="pack-source" href="#" target="_blank" rel="noreferrer">SOURCE ↗</a>
+            <a id="pack-source" href="#" target="_blank" rel="noreferrer" data-i18n="common.source">SOURCE ↗</a>
           </footer>
         </aside>
 
@@ -66,7 +66,7 @@
           <div class="canvas-toolbar">
             <div class="canvas-status">
               <span class="signal-dot"></span>
-              <strong id="map-name">MAP LOADING</strong>
+              <strong id="map-name" data-i18n="editor.mapLoading">MAP LOADING</strong>
               <span id="object-count">— OBJECTS</span>
             </div>
             <div class="canvas-options">
@@ -98,7 +98,7 @@
         <aside class="inspector-panel" aria-label="Object properties panel" data-i18n-aria-label="editor.inspectorAria">
           <div class="panel-title">
             <div><span>03</span><strong data-i18n="editor.inspector">PROPERTY INSPECTOR</strong></div>
-            <small id="selection-kind">NO SELECTION</small>
+            <small id="selection-kind" data-i18n="editor.noSelection">NO SELECTION</small>
           </div>
           <div class="inspector-empty" id="inspector-empty">
             <div class="focus-reticle" aria-hidden="true"></div>
@@ -110,8 +110,8 @@
             <div class="field-grid">
               <label><span data-i18n="editor.field.kind">Kind</span><select id="field-kind" name="kind"></select></label>
               <label><span data-i18n="editor.field.layer">Layer</span><select id="field-layer" name="layer"></select></label>
-              <label>X<input id="field-x" name="x" type="number" step="0.1" /></label>
-              <label>Y<input id="field-y" name="y" type="number" step="0.1" /></label>
+              <label><span data-i18n="editor.field.x">X position</span><input id="field-x" name="x" type="number" step="0.1" /></label>
+              <label><span data-i18n="editor.field.y">Y position</span><input id="field-y" name="y" type="number" step="0.1" /></label>
               <label><span data-i18n="editor.field.width">Width</span><input id="field-width" name="width" type="number" min="1" step="0.1" /></label>
               <label><span data-i18n="editor.field.height">Height</span><input id="field-height" name="height" type="number" min="1" step="0.1" /></label>
               <label><span data-i18n="editor.field.z">Z order</span><input id="field-z" name="z" type="number" step="1" /></label>
@@ -121,7 +121,7 @@
             <label class="wide-field"><span data-i18n="editor.field.labelZh">Chinese label</span><input id="field-label-zh" name="labelZh" type="text" /></label>
             <label class="wide-field"><span data-i18n="editor.field.labelEn">English label</span><input id="field-label-en" name="labelEn" type="text" /></label>
             <div class="simulation-fields" id="simulation-fields">
-              <p>SIMULATION MAPPING</p>
+              <p data-i18n="editor.simulationMapping">SIMULATION MAPPING</p>
               <label class="wide-field"><span data-i18n="editor.field.simulationStatus">Simulation status</span><select id="field-simulation-status" name="simulationStatus"><option value="display_only" data-i18n="editor.status.displayOnly">Non-simulation venue</option><option value="mapped" data-i18n="editor.status.mapped">Mapped source building</option></select></label>
               <label class="wide-field"><span data-i18n="editor.field.sourceBuilding">Source building ID</span><input id="field-source-building-id" name="sourceBuildingId" type="text" placeholder="e.g. night_school_building_01" data-i18n-placeholder="editor.sourcePlaceholder" /></label>
             </div>
@@ -135,13 +135,13 @@
             </div>
           </form>
           <footer class="draft-status">
-            <span>LOCAL DRAFT</span>
+            <span data-i18n="editor.localDraft">LOCAL DRAFT</span>
             <b id="draft-status">Waiting to load…</b>
           </footer>
         </aside>
       </section>
     </main>
     <div class="toast" id="editor-toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./editor.js?v=20260720-dashboard-fix"></script>
+    <script type="module" src="./editor.js?v=20260720-timeline-guide"></script>
   </body>
 </html>

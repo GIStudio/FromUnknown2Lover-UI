@@ -230,7 +230,9 @@ def assert_step_seven_dialogue_layout(page: Page) -> dict[str, object]:
     page.locator("#speed-select").select_option("450")
     page.locator("#play-button").click()
     page.wait_for_timeout(600)
-    assert page.locator("#timeline").input_value() == "7", "Auto timeline advanced before the Step dialogue finished"
+    timeline_value = float(page.locator("#timeline").input_value())
+    assert 7 < timeline_value < 8, "Timeline cursor did not move continuously within the current Step"
+    assert page.locator("#step-label").text_content() == "STEP 07", "Logical Step advanced before the dialogue completed"
     page.locator("#play-button").click()
     page.locator("#speed-select").select_option("900")
     return {
@@ -240,6 +242,47 @@ def assert_step_seven_dialogue_layout(page: Page) -> dict[str, object]:
         "bubblePageSize": len(first_bubble_agents),
         "bubbleTurnMs": 1800,
     }
+
+
+def assert_continuous_timeline_and_guide(page: Page) -> dict[str, object]:
+    set_step(page, 6)
+    bubble_button = page.locator("#bubble-demo-button")
+    if bubble_button.get_attribute("aria-pressed") == "true":
+        bubble_button.click()
+    page.locator("#movement-mode").select_option("normal")
+    page.locator("#speed-select").select_option("900")
+    page.locator("#play-button").click()
+    page.wait_for_timeout(350)
+    first_cursor = float(page.locator("#timeline").input_value())
+    assert 6 < first_cursor < 7
+    assert page.locator("#agent-layer .agent.is-moving").count() == 0, "Agents moved before the time-window tail"
+    page.wait_for_timeout(650)
+    assert page.locator("#agent-layer .agent.is-moving").count() > 0, "Agents did not move in the time-window tail"
+    page.wait_for_timeout(700)
+    assert page.locator("#step-label").text_content() == "STEP 07", "Transition did not commit the next discrete Step"
+    page.locator("#play-button").click()
+    bubble_button.click()
+
+    markers = page.locator("#timeline-events .timeline-event-marker")
+    assert markers.count() == 14
+    marker = page.locator('#timeline-events .timeline-event-marker[data-step="3"]')
+    assert marker.get_attribute("aria-label")
+    marker.click()
+    assert page.locator("#step-label").text_content() == "STEP 03"
+
+    guide = page.locator("#usage-guide")
+    page.locator("#guide-button").click()
+    assert guide.evaluate("dialog => dialog.open")
+    assert "HOW TO READ THE CITY" in guide.text_content()
+    page.locator("#guide-close").click()
+    assert not guide.evaluate("dialog => dialog.open")
+    page.locator('[data-language="zh"]').click()
+    page.locator("#guide-button").click()
+    assert "如何阅读这座城市" in guide.text_content()
+    page.locator("#guide-close").click()
+    page.locator('[data-language="en"]').click()
+    page.locator("#movement-mode").select_option("trail")
+    return {"markers": markers.count(), "continuousCursor": first_cursor}
 
 
 def assert_relationship_dashboard(page: Page) -> dict[str, object]:
@@ -275,6 +318,7 @@ def assert_movement_modes(page: Page, screenshot: Path) -> dict[str, object]:
     assert road_toggle.get_attribute("aria-pressed") == "false"
     page.wait_for_timeout(1200)
 
+    set_step(page, 7)
     set_step(page, 8)
     trail_paths = page.locator("#movement-trails .movement-light-core").count()
     moving_agents = page.locator("#agent-layer .agent.is-moving").count()
@@ -392,6 +436,7 @@ def check_viewer(page: Page, base_url: str, screenshot: Path) -> dict[str, objec
     assert_agents_inside_mapped_objects(page)
     dashboard = assert_relationship_dashboard(page)
     step_seven = assert_step_seven_dialogue_layout(page)
+    timeline = assert_continuous_timeline_and_guide(page)
     movement = assert_movement_modes(page, screenshot)
     page.screenshot(path=str(screenshot), full_page=True)
     page.set_viewport_size({"width": 390, "height": 900})
@@ -401,7 +446,7 @@ def check_viewer(page: Page, base_url: str, screenshot: Path) -> dict[str, objec
     assert_stage_fits_world(page)
     page.set_viewport_size({"width": 1440, "height": 1100})
     legacy = check_legacy_replay(page, base_url)
-    return {"stage": stage_box, "legend": legend_box, "mobileStage": mobile_stage, "step13": counts, "dashboard": dashboard, "step7": step_seven, "movement": movement, "legacyReplay": legacy}
+    return {"stage": stage_box, "legend": legend_box, "mobileStage": mobile_stage, "step13": counts, "dashboard": dashboard, "step7": step_seven, "timeline": timeline, "movement": movement, "legacyReplay": legacy}
 
 
 def check_editor_and_draft(page: Page, base_url: str) -> dict[str, object]:

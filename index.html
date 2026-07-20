@@ -9,7 +9,7 @@
       data-i18n-content="viewer.metaDescription"
     />
     <title>Common Ground · Agent Replay</title>
-    <link rel="stylesheet" href="./styles.css?v=20260720-dashboard-fix" />
+    <link rel="stylesheet" href="./styles.css?v=20260720-timeline-guide" />
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
@@ -33,6 +33,7 @@
           </div>
           <a class="character-link" href="./characters.html" data-i18n="viewer.characterGenerator">Character generator</a>
           <a class="editor-link" href="./editor.html" data-i18n="viewer.mapEditor">Map editor</a>
+          <button class="guide-button" id="guide-button" type="button" aria-haspopup="dialog" aria-controls="usage-guide" aria-expanded="false" data-i18n="viewer.guideOpen">Guide</button>
           <label class="import-button" for="data-file" data-i18n="viewer.importReplay">Import replay JSON</label>
           <input id="data-file" type="file" accept="application/json,.json" />
         </div>
@@ -70,7 +71,7 @@
         <section class="world-panel" aria-label="Agent pixel-city replay" data-i18n-aria-label="viewer.worldAria">
           <div class="world-toolbar">
             <div>
-              <span class="location-kicker">BEHAVIOR SETTING</span>
+              <span class="location-kicker" data-i18n="viewer.behaviorSetting">BEHAVIOR SETTING</span>
               <strong id="scene-name" data-i18n="viewer.defaultScene">Youth public-life district</strong>
             </div>
             <div class="world-stats">
@@ -125,11 +126,14 @@
                 <span id="timeline-title" data-i18n="viewer.observationWindow">Observation window</span>
                 <span id="timeline-position">1 / 1</span>
               </div>
-              <input id="timeline" type="range" min="0" max="0" value="0" step="1" />
+              <div class="timeline-track">
+                <input id="timeline" type="range" min="0" max="0" value="0" step="any" />
+                <div class="timeline-events" id="timeline-events" aria-label="Dialogue events on the replay timeline" data-i18n-aria-label="viewer.timelineEventsAria"></div>
+              </div>
               <div class="timeline-ticks" id="timeline-ticks"></div>
             </div>
             <label class="speed-control">
-              <span>SPEED</span>
+              <span data-i18n="viewer.speedLabel">SPEED</span>
               <select id="speed-select" aria-label="Playback speed" data-i18n-aria-label="viewer.speed">
                 <option value="1800">0.5×</option>
                 <option value="900" selected>1×</option>
@@ -183,7 +187,42 @@
       </section>
     </main>
 
+    <dialog class="guide-dialog" id="usage-guide" aria-labelledby="guide-title">
+      <form method="dialog" class="guide-sheet">
+        <header class="guide-heading">
+          <div>
+            <span data-i18n="viewer.guideKicker">FIELD NOTE 01</span>
+            <h2 id="guide-title" data-i18n="viewer.guideTitle">HOW TO READ THE CITY</h2>
+          </div>
+          <button class="guide-close" id="guide-close" type="submit" value="close" data-i18n-aria-label="viewer.guideClose" aria-label="Close guide">×</button>
+        </header>
+        <div class="guide-content">
+          <section>
+            <span class="guide-number">01</span>
+            <div><h3 data-i18n="viewer.guide.observe.title">Observe a Step</h3><p data-i18n="viewer.guide.observe.body">Choose an Agent or a card to inspect their state, place and relationship trajectory.</p></div>
+          </section>
+          <section>
+            <span class="guide-number">02</span>
+            <div><h3 data-i18n="viewer.guide.timeline.title">Follow Time</h3><p data-i18n="viewer.guide.timeline.body">Press play for a continuous time window. Dialogue finishes first; the final segment shows movement into the next observation.</p></div>
+          </section>
+          <section>
+            <span class="guide-number">03</span>
+            <div><h3 data-i18n="viewer.guide.dialogue.title">Read Dialogues</h3><p data-i18n="viewer.guide.dialogue.body">Speech markers on the timeline jump to Steps with playable encounters. Dialogue mode rotates up to three encounters at once.</p></div>
+          </section>
+          <section>
+            <span class="guide-number">04</span>
+            <div><h3 data-i18n="viewer.guide.movement.title">Trace Movement</h3><p data-i18n="viewer.guide.movement.body">FLOW controls Normal movement, ghosts or light trails. ROADS routes inter-venue movement along the street network.</p></div>
+          </section>
+          <section>
+            <span class="guide-number">05</span>
+            <div><h3 data-i18n="viewer.guide.tools.title">Edit the Scene</h3><p data-i18n="viewer.guide.tools.body">Map Editor manages physical space; Character Generator assigns bundled pixel sprites. Neither changes the simulation record.</p></div>
+          </section>
+          <aside class="guide-boundary"><strong data-i18n="viewer.guide.boundary.title">DATA BOUNDARY</strong><p data-i18n="viewer.guide.boundary.body">Displayed positions and motion are visual layout aids. Replay coordinates, dialogue and relationship values remain the source evidence.</p></aside>
+        </div>
+      </form>
+    </dialog>
+
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./app.js?v=20260720-dashboard-fix"></script>
+    <script type="module" src="./app.js?v=20260720-timeline-guide"></script>
   </body>
 </html>

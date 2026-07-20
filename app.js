@@ -8,10 +8,10 @@ import {
   renderMap,
   renderMapError,
   validateMap,
-} from "./map-renderer.js?v=20260720-dashboard-fix";
-import { buildReplayLayout } from "./agent-layout.js?v=20260720-dashboard-fix";
-import { buildAgentAppearance } from "./agent-appearance.js?v=20260720-dashboard-fix";
-import { applyCharacterSpriteStyle, readCharacterRoster } from "./character-sprites.js?v=20260720-dashboard-fix";
+} from "./map-renderer.js?v=20260720-timeline-guide";
+import { buildReplayLayout } from "./agent-layout.js?v=20260720-timeline-guide";
+import { buildAgentAppearance } from "./agent-appearance.js?v=20260720-timeline-guide";
+import { applyCharacterSpriteStyle, readCharacterRoster } from "./character-sprites.js?v=20260720-timeline-guide";
 import {
   MOVEMENT_MODE_KEY,
   ROAD_MOVEMENT_KEY,
@@ -21,21 +21,27 @@ import {
   movementPath,
   movementPoint,
   normalizeMovementMode,
-} from "./agent-movement.js?v=20260720-dashboard-fix";
-import { bindLanguageControls, initI18n, t } from "./i18n.js?v=20260720-dashboard-fix";
+} from "./agent-movement.js?v=20260720-timeline-guide";
+import { bindLanguageControls, initI18n, t } from "./i18n.js?v=20260720-timeline-guide";
 import {
   activeDialogueEntries,
   buildEncounterGroups,
   groupTurnCount,
   playbackDuration,
   turnDurationFromFrameDelay,
-} from "./encounter-playback.js?v=20260720-dashboard-fix";
+} from "./encounter-playback.js?v=20260720-timeline-guide";
 import {
   RELATIONSHIP_METRICS,
   buildRelationshipDashboard,
   linePath,
   relationshipPulse,
-} from "./relationship-dashboard.js?v=20260720-dashboard-fix";
+} from "./relationship-dashboard.js?v=20260720-timeline-guide";
+import {
+  LOOP_PAUSE_MS,
+  buildTimelineMarkers,
+  createPlaybackWindow,
+  samplePlaybackWindow,
+} from "./timeline-playback.js?v=20260720-timeline-guide";
 
 initI18n();
 bindLanguageControls();
@@ -60,11 +66,14 @@ const dom = {
   relationLayer: document.querySelector("#relation-layer"),
   timeline: document.querySelector("#timeline"),
   timelineTicks: document.querySelector("#timeline-ticks"),
+  timelineEvents: document.querySelector("#timeline-events"),
   timelinePosition: document.querySelector("#timeline-position"),
   timelineTitle: document.querySelector("#timeline-title"),
   playButton: document.querySelector("#play-button"),
   speedSelect: document.querySelector("#speed-select"),
   dataFile: document.querySelector("#data-file"),
+  guideButton: document.querySelector("#guide-button"),
+  usageGuide: document.querySelector("#usage-guide"),
   focusEmpty: document.querySelector("#focus-empty"),
   focusContent: document.querySelector("#focus-content"),
   focusAvatar: document.querySelector("#focus-avatar"),
@@ -99,6 +108,11 @@ const state = {
   focusedAgentId: null,
   playing: false,
   timer: null,
+  playbackRaf: null,
+  playbackPauseTimer: null,
+  playbackWindow: null,
+  timelineCursor: 0,
+  activeTransition: null,
   bubbleDemoEnabled: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   bubblePage: 0,
   bubbleTurn: 0,
@@ -380,9 +394,9 @@ function applyReplayLayout(frame) {
   };
 }
 
-function movementSnapshot(frame) {
+function movementSnapshot(frame, frameIndex = state.frameIndex) {
   return {
-    frameIndex: state.frameIndex,
+    frameIndex,
     agents: frame.agents.map((agent) => ({
       id: Number(agent.id),
       display: { x: Number(agent.display.x), y: Number(agent.display.y) },
@@ -435,7 +449,7 @@ function renderLightTrails(plan) {
   });
 }
 
-function renderMovementGhosts(plan) {
+function renderMovementGhosts(plan, duration = MOVEMENT_DURATION_MS) {
   plan.forEach((movement) => {
     const profile = agentById(movement.id);
     if (!profile) return;
@@ -446,7 +460,7 @@ function renderMovementGhosts(plan) {
       ghost.style.left = `${point.x}%`;
       ghost.style.top = `${point.y}%`;
       // A residual image must only appear after the moving Agent has passed it.
-      ghost.style.setProperty("--ghost-delay", `${Math.round(progress * MOVEMENT_DURATION_MS)}ms`);
+      ghost.style.setProperty("--ghost-delay", `${Math.round(progress * duration)}ms`);
       ghost.style.setProperty("--movement-color", movementColor(movement.id));
       ghost.dataset.agentId = String(movement.id);
       ghost.dataset.routeMode = movement.routeMode;
@@ -461,17 +475,17 @@ function renderMovementGhosts(plan) {
   });
 }
 
-function renderMovementEffects(plan) {
+function renderMovementEffects(plan, duration = MOVEMENT_DURATION_MS) {
   clearMovementEffects();
   if (plan.length === 0 || ["off", "normal"].includes(state.movementMode)) return;
   dom.movementLayer.classList.add(`mode-${state.movementMode}`, "is-active");
   dom.movementLayer.classList.toggle("is-dense-flow", plan.length > 12);
-  if (state.movementMode === "ghost") renderMovementGhosts(plan);
+  if (state.movementMode === "ghost") renderMovementGhosts(plan, duration);
   else renderLightTrails(plan);
-  state.movementTimer = window.setTimeout(clearMovementEffects, MOVEMENT_DURATION_MS + 260);
+  state.movementTimer = window.setTimeout(clearMovementEffects, duration + 260);
 }
 
-function animateAgentButtons(movingAgents) {
+function animateAgentButtons(movingAgents, duration = MOVEMENT_DURATION_MS) {
   if (movingAgents.length === 0) return;
   window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
     movingAgents.forEach(({ button, sprite, movement, appearance }) => {
@@ -480,7 +494,7 @@ function animateAgentButtons(movingAgents) {
       button.style.left = `${movement.to.x}%`;
       button.style.top = `${movement.to.y}%`;
       const animation = button.animate(movementKeyframes(movement), {
-        duration: MOVEMENT_DURATION_MS,
+        duration,
         easing: movement.routeMode === "road" ? "linear" : "cubic-bezier(0.2, 0.72, 0.26, 1)",
       });
       state.movementAnimations.push(animation);
@@ -493,7 +507,7 @@ function animateAgentButtons(movingAgents) {
         }
         applyCharacterSpriteStyle(sprite, {
           ...appearance,
-          direction: movementDirectionAt(movement, (performance.now() - startedAt) / MOVEMENT_DURATION_MS),
+          direction: movementDirectionAt(movement, (performance.now() - startedAt) / duration),
           frame: frame % 3,
         });
         frame += 1;
@@ -502,7 +516,7 @@ function animateAgentButtons(movingAgents) {
         window.clearInterval(frameTimer);
         if (sprite.isConnected) applyCharacterSpriteStyle(sprite, appearance);
         button.classList.remove("is-moving");
-      }, MOVEMENT_DURATION_MS);
+      }, duration);
       state.movementSpriteTimers.push(frameTimer, stopTimer);
     });
   }));
@@ -732,50 +746,79 @@ function relationshipPulseForAgent(agentId) {
   return index > 0 ? relationshipPulse(series, index) : null;
 }
 
+function displayLayoutForFrame(frame) {
+  return applyReplayLayout(projectFrame(frame));
+}
+
 function render() {
   if (!state.data) return;
   const frame = currentFrame();
-  const projectedFrame = projectFrame(frame);
-  const displayLayout = applyReplayLayout(projectedFrame);
+  const displayLayout = displayLayoutForFrame(frame);
   const currentEvents = eventsAtStep(frame.step);
   if (state.relationPulseStep !== frame.step) {
     state.relationPulseStep = frame.step;
     state.relationPulseStartedAt = performance.now();
   }
   const currentMovementSnapshot = movementSnapshot(displayLayout.frame);
-  const movementPlan = state.movementMode === "off"
+  let agentLayout = displayLayout;
+  let movementPlan = state.movementMode === "off"
     ? []
     : buildMovementPlan(state.lastMovementSnapshot, currentMovementSnapshot, {
       roadMap: state.roadMovement ? state.map : null,
     });
+  let movementDuration = MOVEMENT_DURATION_MS;
+  if (state.activeTransition) {
+    const targetFrame = state.data.frames[state.activeTransition.targetIndex];
+    if (targetFrame) {
+      agentLayout = displayLayoutForFrame(targetFrame);
+      const targetSnapshot = movementSnapshot(agentLayout.frame, state.activeTransition.targetIndex);
+      movementPlan = state.movementMode === "off"
+        ? []
+        : buildMovementPlan(currentMovementSnapshot, targetSnapshot, {
+          roadMap: state.roadMovement ? state.map : null,
+        });
+      movementDuration = state.activeTransition.duration;
+    }
+  }
   const bubbleState = bubbleDemoState(displayLayout.frame, currentEvents);
+  const cursor = Number.isFinite(state.timelineCursor) ? state.timelineCursor : state.frameIndex;
   const progress = state.data.frames.length <= 1
     ? 0
-    : (state.frameIndex / (state.data.frames.length - 1)) * 100;
+    : (cursor / (state.data.frames.length - 1)) * 100;
 
   dom.runName.textContent = state.data.meta.title;
-  dom.agentCount.textContent = `${state.data.agents.length} AGENTS`;
+  dom.agentCount.textContent = t("viewer.agentCount", { count: state.data.agents.length });
   dom.sceneName.textContent = state.data.meta.scene;
-  dom.stepLabel.textContent = `STEP ${String(frame.step).padStart(2, "0")}`;
+  dom.stepLabel.textContent = t("viewer.step", { step: String(frame.step).padStart(2, "0") });
   dom.timeLabel.textContent = frame.time;
-  dom.eventCount.textContent = `${currentEvents.length} EVENT${currentEvents.length === 1 ? "" : "S"}`;
+  dom.eventCount.textContent = t(currentEvents.length === 1 ? "viewer.eventCount.one" : "viewer.eventCount.other", { count: currentEvents.length });
   dom.timelinePosition.textContent = `${state.frameIndex + 1} / ${state.data.frames.length}`;
   dom.timelineTitle.textContent = state.data.meta.description || t("viewer.observationWindow");
-  dom.timeline.value = state.frameIndex;
+  dom.timeline.value = String(cursor);
   dom.timeline.style.setProperty("--timeline-progress", `${progress}%`);
   dom.dataSource.textContent = state.data.meta.source;
 
   renderRelationshipDashboard();
-  renderMovementEffects(movementPlan);
-  renderAgents(displayLayout.frame, currentEvents, bubbleState.activeDialogueByAgent, movementPlan);
-  renderRelations(displayLayout.frame, currentEvents, displayLayout.conversations);
+  renderMovementEffects(movementPlan, movementDuration);
+  renderAgents(
+    agentLayout.frame,
+    state.activeTransition ? [] : currentEvents,
+    state.activeTransition ? new Map() : bubbleState.activeDialogueByAgent,
+    movementPlan,
+    movementDuration,
+  );
+  renderRelations(
+    state.activeTransition ? agentLayout.frame : displayLayout.frame,
+    state.activeTransition ? [] : currentEvents,
+    state.activeTransition ? [] : displayLayout.conversations,
+  );
   renderFocus();
   renderEventList(frame);
-  scheduleBubbleRotation(frame.step, bubbleState.groups);
-  state.lastMovementSnapshot = currentMovementSnapshot;
+  if (!state.activeTransition) scheduleBubbleRotation(frame.step, bubbleState.groups);
+  if (!state.activeTransition) state.lastMovementSnapshot = currentMovementSnapshot;
 }
 
-function renderAgents(frame, currentEvents, activeDialogueByAgent = new Map(), movementPlan = []) {
+function renderAgents(frame, currentEvents, activeDialogueByAgent = new Map(), movementPlan = [], movementDuration = MOVEMENT_DURATION_MS) {
   dom.agentLayer.replaceChildren();
   const movementById = new Map(movementPlan.map((movement) => [Number(movement.id), movement]));
   const movingAgents = [];
@@ -863,7 +906,7 @@ function renderAgents(frame, currentEvents, activeDialogueByAgent = new Map(), m
     dom.agentLayer.append(button);
     if (movement) movingAgents.push({ button, sprite, movement, appearance: profile.appearance });
   });
-  animateAgentButtons(movingAgents);
+  animateAgentButtons(movingAgents, movementDuration);
 }
 
 function appendRelationLine(source, target, className) {
@@ -1015,15 +1058,36 @@ function renderEventList(frame) {
 
 function renderTimelineTicks() {
   dom.timelineTicks.replaceChildren();
-  const eventSteps = new Set(state.data.events.map((event) => event.step));
+  dom.timelineEvents.replaceChildren();
+  const markers = buildTimelineMarkers(state.data.frames, state.data.events);
   state.data.frames.forEach((frame) => {
     const tick = document.createElement("i");
-    if (eventSteps.has(frame.step)) tick.className = "has-event";
+    const marker = markers.find((item) => item.step === Number(frame.step));
+    if (marker?.dialogueCount) tick.className = "has-event";
     dom.timelineTicks.append(tick);
+  });
+  markers.filter((marker) => marker.dialogueCount > 0).forEach((marker) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "timeline-event-marker";
+    button.dataset.step = String(marker.step);
+    button.style.left = `${marker.position * 100}%`;
+    button.textContent = String(marker.dialogueCount);
+    const label = t("viewer.timelineEvent", {
+      step: String(marker.step).padStart(2, "0"),
+      time: marker.time,
+      count: marker.dialogueCount,
+      turns: marker.turnCount,
+    });
+    button.title = label;
+    button.setAttribute("aria-label", label);
+    button.addEventListener("click", () => goToStep(marker.step));
+    dom.timelineEvents.append(button);
   });
 }
 
 function goToStep(step) {
+  stopPlayback();
   state.bubbleStep = null;
   state.bubblePage = 0;
   state.bubbleTurn = 0;
@@ -1037,29 +1101,100 @@ function goToStep(step) {
       return currentDistance < bestDistance ? index : best;
     }, 0);
   }
+  state.timelineCursor = state.frameIndex;
   render();
+}
+
+function cancelPlaybackClock() {
+  window.clearTimeout(state.timer);
+  window.clearTimeout(state.playbackPauseTimer);
+  window.cancelAnimationFrame(state.playbackRaf);
+  state.timer = null;
+  state.playbackPauseTimer = null;
+  state.playbackRaf = null;
+  state.playbackWindow = null;
 }
 
 function stopPlayback() {
   state.playing = false;
-  clearTimeout(state.timer);
+  cancelPlaybackClock();
+  state.activeTransition = null;
+  state.timelineCursor = state.frameIndex;
+  clearMovementEffects();
   dom.playButton.classList.remove("is-playing");
   dom.playButton.setAttribute("aria-label", t("viewer.play"));
 }
 
-function scheduleNextFrame() {
-  clearTimeout(state.timer);
-  if (!state.playing) return;
+function updateTimelineCursor(cursor) {
+  const lastIndex = Math.max(0, state.data.frames.length - 1);
+  state.timelineCursor = clamp(cursor, 0, lastIndex);
+  const progress = lastIndex === 0 ? 0 : (state.timelineCursor / lastIndex) * 100;
+  dom.timeline.value = String(state.timelineCursor);
+  dom.timeline.style.setProperty("--timeline-progress", `${progress}%`);
+}
+
+function playbackDwellDuration() {
   const currentEvents = eventsAtStep(currentFrame().step);
-  const demoDuration = state.bubbleDemoEnabled
+  const groups = buildEncounterGroups(currentEvents);
+  const hasDialogues = groups.some((group) => group.length > 0);
+  const demoDuration = state.bubbleDemoEnabled && hasDialogues
     ? playbackDuration(buildEncounterGroups(currentEvents), turnDurationFromFrameDelay(dom.speedSelect.value))
     : 0;
-  state.timer = window.setTimeout(() => {
-    if (state.frameIndex >= state.data.frames.length - 1) state.frameIndex = 0;
-    else state.frameIndex += 1;
+  return Math.max(Number(dom.speedSelect.value), demoDuration);
+}
+
+function startTransition(targetIndex, duration) {
+  if (state.activeTransition || targetIndex === state.frameIndex) return;
+  clearBubbleRotation();
+  state.activeTransition = { targetIndex, duration };
+  render();
+}
+
+function completePlaybackWindow(windowState) {
+  const lastIndex = state.data.frames.length - 1;
+  if (windowState.frameIndex >= lastIndex) {
+    state.frameIndex = 0;
+    state.timelineCursor = 0;
+    state.lastMovementSnapshot = null;
+    state.activeTransition = null;
     render();
-    scheduleNextFrame();
-  }, Math.max(Number(dom.speedSelect.value), demoDuration));
+    state.playbackPauseTimer = window.setTimeout(() => beginPlaybackWindow(), LOOP_PAUSE_MS);
+    return;
+  }
+  state.frameIndex = windowState.frameIndex + 1;
+  state.timelineCursor = state.frameIndex;
+  state.activeTransition = null;
+  const targetLayout = displayLayoutForFrame(currentFrame());
+  state.lastMovementSnapshot = movementSnapshot(targetLayout.frame, state.frameIndex);
+  render();
+  beginPlaybackWindow();
+}
+
+function beginPlaybackWindow() {
+  cancelPlaybackClock();
+  if (!state.playing || !state.data) return;
+  const windowState = createPlaybackWindow({
+    frameIndex: state.frameIndex,
+    frameCount: state.data.frames.length,
+    dwellMs: playbackDwellDuration(),
+  });
+  state.playbackWindow = windowState;
+  const startedAt = performance.now();
+  const tick = (now) => {
+    if (!state.playing || state.playbackWindow !== windowState) return;
+    const sample = samplePlaybackWindow(windowState, now - startedAt);
+    if (windowState.frameIndex < state.data.frames.length - 1) updateTimelineCursor(sample.cursor);
+    else updateTimelineCursor(windowState.frameIndex);
+    if (sample.phase === "transition" && windowState.frameIndex < state.data.frames.length - 1) {
+      startTransition(windowState.frameIndex + 1, windowState.transitionMs);
+    }
+    if (sample.phase === "complete") {
+      completePlaybackWindow(windowState);
+      return;
+    }
+    state.playbackRaf = window.requestAnimationFrame(tick);
+  };
+  state.playbackRaf = window.requestAnimationFrame(tick);
 }
 
 function togglePlayback() {
@@ -1067,7 +1202,7 @@ function togglePlayback() {
   state.playing = !state.playing;
   dom.playButton.classList.toggle("is-playing", state.playing);
   dom.playButton.setAttribute("aria-label", state.playing ? t("viewer.pause") : t("viewer.play"));
-  if (state.playing) scheduleNextFrame();
+  if (state.playing) beginPlaybackWindow();
   else stopPlayback();
 }
 
@@ -1088,6 +1223,7 @@ function installData(raw, message = t("viewer.replayLoaded")) {
   rebuildReplayLayout();
   dom.world.classList.toggle("is-dense", state.data.agents.length > 12);
   state.frameIndex = 0;
+  state.timelineCursor = 0;
   state.bubblePage = 0;
   state.bubbleTurn = 0;
   state.bubbleStep = null;
@@ -1148,19 +1284,41 @@ dom.bubbleDemoButton.addEventListener("click", () => {
   state.bubblePage = 0;
   state.bubbleTurn = 0;
   clearBubbleRotation();
+  if (state.playing) {
+    state.activeTransition = null;
+    state.timelineCursor = state.frameIndex;
+    clearMovementEffects();
+  }
   render();
-  if (state.playing) scheduleNextFrame();
+  if (state.playing) beginPlaybackWindow();
 });
 dom.speedSelect.addEventListener("change", () => {
   clearBubbleRotation();
+  if (state.playing) {
+    state.activeTransition = null;
+    state.timelineCursor = state.frameIndex;
+    clearMovementEffects();
+  }
   render();
-  if (state.playing) scheduleNextFrame();
+  if (state.playing) beginPlaybackWindow();
 });
-  dom.timeline.addEventListener("input", (event) => {
+dom.timeline.addEventListener("input", (event) => {
   stopPlayback();
-  state.frameIndex = Number(event.target.value);
+  state.frameIndex = Math.round(Number(event.target.value));
+  state.timelineCursor = state.frameIndex;
   state.bubbleStep = null;
   render();
+});
+dom.guideButton.addEventListener("click", () => {
+  dom.guideButton.setAttribute("aria-expanded", "true");
+  dom.usageGuide.showModal();
+});
+dom.usageGuide.addEventListener("close", () => {
+  dom.guideButton.setAttribute("aria-expanded", "false");
+  dom.guideButton.focus();
+});
+dom.usageGuide.addEventListener("click", (event) => {
+  if (event.target === dom.usageGuide) dom.usageGuide.close();
 });
 dom.clearFocus.addEventListener("click", () => {
   state.focusedAgentId = null;
@@ -1186,11 +1344,13 @@ document.addEventListener("keydown", (event) => {
   } else if (event.code === "ArrowRight") {
     stopPlayback();
     state.frameIndex = Math.min(state.frameIndex + 1, state.data.frames.length - 1);
+    state.timelineCursor = state.frameIndex;
     state.bubbleStep = null;
     render();
   } else if (event.code === "ArrowLeft") {
     stopPlayback();
     state.frameIndex = Math.max(state.frameIndex - 1, 0);
+    state.timelineCursor = state.frameIndex;
     state.bubbleStep = null;
     render();
   }
@@ -1198,6 +1358,7 @@ document.addEventListener("keydown", (event) => {
 
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
+    stopPlayback();
     clearBubbleRotation();
     clearMovementEffects();
   }

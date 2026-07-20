@@ -6,8 +6,8 @@ import {
   normalizeCharacterAppearance,
   readCharacterRoster,
   writeCharacterRoster,
-} from "./character-sprites.js?v=20260720-dashboard-fix";
-import { bindLanguageControls, initI18n, t } from "./i18n.js?v=20260720-dashboard-fix";
+} from "./character-sprites.js?v=20260720-timeline-guide";
+import { bindLanguageControls, initI18n, t } from "./i18n.js?v=20260720-timeline-guide";
 
 initI18n();
 bindLanguageControls();
@@ -52,8 +52,8 @@ function characterData() {
   return {
     schemaVersion: 1,
     id: Number(dom.id.value) || 1,
-    name: dom.name.value.trim() || `Agent ${Number(dom.id.value) || 1}`,
-    role: dom.role.value.trim() || "participant",
+    name: dom.name.value.trim() || t("character.defaultName", { id: Number(dom.id.value) || 1 }),
+    role: dom.role.value.trim() || t("character.defaultRole"),
     profile: { gender: dom.gender.value },
     appearance: { ...state.appearance },
   };
@@ -150,7 +150,9 @@ function renderPreview() {
   const character = characterData();
   dom.preview.setAttribute("aria-label", `${character.name} / ${state.appearance.spriteId}`);
   dom.previewId.textContent = `#${String(character.id).padStart(3, "0")} / ${state.appearance.spriteId}`;
-  dom.tileReadout.textContent = `TILE ${String(characterTileIndex({ ...state.appearance, frame: state.previewFrame })).padStart(4, "0")}`;
+  dom.tileReadout.textContent = t("character.tileReadout", {
+    tile: String(characterTileIndex({ ...state.appearance, frame: state.previewFrame })).padStart(4, "0"),
+  });
   dom.json.textContent = JSON.stringify(character, null, 2);
 }
 
@@ -163,8 +165,8 @@ function render() {
 
 function loadCharacter(character) {
   dom.id.value = character.id;
-  dom.name.value = character.name || `Agent ${character.id}`;
-  dom.role.value = character.role || "participant";
+  dom.name.value = character.name || t("character.defaultName", { id: character.id });
+  dom.role.value = character.role || t("character.defaultRole");
   dom.gender.value = character.profile?.gender || "neutral";
   setAppearance(character.appearance);
 }
