@@ -59,12 +59,12 @@ class MapDataTests(unittest.TestCase):
         display_only = set(self.map["simulation"]["displayOnlyObjectIds"])
         self.assertEqual(mappings, expected)
         self.assertEqual(len(mappings.values()), len(set(mappings.values())))
-        self.assertEqual(display_only, set())
+        self.assertEqual(display_only, {"central-park-south"})
         self.assertFalse(set(mappings.values()) & display_only)
         semantic_ids = {
             item["id"] for item in self.map["objects"] if item["kind"] in {"venue", "building"}
         }
-        self.assertEqual(semantic_ids, set(mappings.values()) | {"central-park-south"})
+        self.assertEqual(semantic_ids, set(mappings.values()) | display_only)
 
     def test_night_school_occupies_the_south_east_learning_block(self):
         night_school = next(item for item in self.map["objects"] if item["id"] == "night-school")

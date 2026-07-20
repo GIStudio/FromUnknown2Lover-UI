@@ -15,7 +15,7 @@
       "sports_building_01": "sports",
       "night_school_building_01": "night-school"
     },
-    "displayOnlyObjectIds": []
+    "displayOnlyObjectIds": ["central-park-south"]
   },
   "layers": [
     { "id": "ground", "z": 0, "locked": true },
