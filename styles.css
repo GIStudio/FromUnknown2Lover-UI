@@ -365,6 +365,7 @@ h1 {
 .relationship-chart-key .fam { color: #b16d1f; }
 .relationship-chart-key .trust { color: #2f6278; }
 .relationship-chart-key .attr { color: #a63246; }
+.relationship-chart-key .metric-divider { color: #706955; }
 
 .dashboard-metrics {
   display: grid;

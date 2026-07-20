@@ -1,4 +1,4 @@
-import { getLanguage, localizedValue, t } from "./i18n.js";
+import { getLanguage, localizedValue, t } from "./i18n.js?v=20260720-dashboard-fix";
 
 export const DEFAULT_MAP_URL = "./data/map.json";
 export const ASSET_CATALOG_URL = "./assets/catalog.json";

@@ -629,12 +629,16 @@ export function localizedValue(value, language = activeLanguage) {
 
 export function applyTranslations(root = document) {
   root.querySelectorAll("[data-i18n]").forEach((element) => {
-    element.textContent = t(element.dataset.i18n);
+    // Preserve authored copy when an older translation bundle encounters a newer
+    // template key. This avoids ever exposing raw i18n identifiers in the UI.
+    const fallback = element.dataset.i18nFallback || element.textContent.trim() || element.dataset.i18n;
+    element.textContent = t(element.dataset.i18n, {}, fallback);
   });
   ["aria-label", "title", "placeholder", "content"].forEach((attribute) => {
     const dataName = `i18n${attribute.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join("")}`;
     root.querySelectorAll(`[data-${dataName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}]`).forEach((element) => {
-      element.setAttribute(attribute, t(element.dataset[dataName]));
+      const fallback = element.dataset.i18nFallback || element.getAttribute(attribute) || element.dataset[dataName];
+      element.setAttribute(attribute, t(element.dataset[dataName], {}, fallback));
     });
   });
   root.querySelectorAll("[data-language]").forEach((button) => {

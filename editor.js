@@ -12,8 +12,8 @@ import {
   simulationStatusForObject,
   validateMap,
   worldValueToPercent,
-} from "./map-renderer.js";
-import { bindLanguageControls, getLanguage, initI18n, t } from "./i18n.js";
+} from "./map-renderer.js?v=20260720-dashboard-fix";
+import { bindLanguageControls, getLanguage, initI18n, t } from "./i18n.js?v=20260720-dashboard-fix";
 
 initI18n();
 bindLanguageControls();

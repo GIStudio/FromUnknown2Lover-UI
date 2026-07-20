@@ -1,7 +1,7 @@
 const FEMALE_VALUES = new Set(["female", "woman", "girl", "f", "女", "女性"]);
 const MALE_VALUES = new Set(["male", "man", "boy", "m", "男", "男性"]);
 
-import { normalizeCharacterAppearance } from "./character-sprites.js";
+import { normalizeCharacterAppearance } from "./character-sprites.js?v=20260720-dashboard-fix";
 
 const SERIES_BY_GENDER = {
   female: ["sprite-1", "sprite-2", "sprite-3"],

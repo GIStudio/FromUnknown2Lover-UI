@@ -6,8 +6,8 @@ import {
   normalizeCharacterAppearance,
   readCharacterRoster,
   writeCharacterRoster,
-} from "./character-sprites.js";
-import { bindLanguageControls, initI18n, t } from "./i18n.js";
+} from "./character-sprites.js?v=20260720-dashboard-fix";
+import { bindLanguageControls, initI18n, t } from "./i18n.js?v=20260720-dashboard-fix";
 
 initI18n();
 bindLanguageControls();

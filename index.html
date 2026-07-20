@@ -9,7 +9,7 @@
       data-i18n-content="viewer.metaDescription"
     />
     <title>Common Ground · Agent Replay</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260720-dashboard-fix" />
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
@@ -54,7 +54,7 @@
             </div>
             <svg class="relationship-chart" id="relationship-chart" viewBox="0 0 246 104" preserveAspectRatio="none" role="img" data-i18n-aria-label="viewer.dashboardChartAria" aria-label="Relationship metric history"></svg>
             <div class="relationship-chart-key" aria-hidden="true">
-              <span class="fam">FAM</span><span class="trust">TRUST</span><span class="attr">ATTR</span>
+              <span class="fam">FAM</span><span class="metric-divider" aria-hidden="true">·</span><span class="trust">TRUST</span><span class="metric-divider" aria-hidden="true">·</span><span class="attr">ATTR</span>
             </div>
             <div class="dashboard-metrics" id="dashboard-metrics"></div>
           </section>
@@ -184,6 +184,6 @@
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=20260720-dashboard-fix"></script>
   </body>
 </html>

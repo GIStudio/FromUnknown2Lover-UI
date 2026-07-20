@@ -8,10 +8,10 @@ import {
   renderMap,
   renderMapError,
   validateMap,
-} from "./map-renderer.js";
-import { buildReplayLayout } from "./agent-layout.js";
-import { buildAgentAppearance } from "./agent-appearance.js";
-import { applyCharacterSpriteStyle, readCharacterRoster } from "./character-sprites.js";
+} from "./map-renderer.js?v=20260720-dashboard-fix";
+import { buildReplayLayout } from "./agent-layout.js?v=20260720-dashboard-fix";
+import { buildAgentAppearance } from "./agent-appearance.js?v=20260720-dashboard-fix";
+import { applyCharacterSpriteStyle, readCharacterRoster } from "./character-sprites.js?v=20260720-dashboard-fix";
 import {
   MOVEMENT_MODE_KEY,
   ROAD_MOVEMENT_KEY,
@@ -21,21 +21,21 @@ import {
   movementPath,
   movementPoint,
   normalizeMovementMode,
-} from "./agent-movement.js";
-import { bindLanguageControls, initI18n, t } from "./i18n.js";
+} from "./agent-movement.js?v=20260720-dashboard-fix";
+import { bindLanguageControls, initI18n, t } from "./i18n.js?v=20260720-dashboard-fix";
 import {
   activeDialogueEntries,
   buildEncounterGroups,
   groupTurnCount,
   playbackDuration,
   turnDurationFromFrameDelay,
-} from "./encounter-playback.js";
+} from "./encounter-playback.js?v=20260720-dashboard-fix";
 import {
   RELATIONSHIP_METRICS,
   buildRelationshipDashboard,
   linePath,
   relationshipPulse,
-} from "./relationship-dashboard.js";
+} from "./relationship-dashboard.js?v=20260720-dashboard-fix";
 
 initI18n();
 bindLanguageControls();
