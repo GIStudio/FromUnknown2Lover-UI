@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "id": "common-ground-district",
-  "name": "Common Ground District",
+  "name": "Common Ground District · Facilities Plan",
   "world": { "width": 240, "height": 360, "unit": "m", "grid": 1 },
   "simulation": {
     "buildingMappings": {
@@ -15,7 +15,7 @@
       "sports_building_01": "sports",
       "night_school_building_01": "night-school"
     },
-    "displayOnlyObjectIds": ["residential", "creative-court", "service", "workshop"]
+    "displayOnlyObjectIds": []
   },
   "layers": [
     { "id": "ground", "z": 0, "locked": true },
@@ -24,45 +24,36 @@
     { "id": "decor", "z": 30, "locked": false }
   ],
   "objects": [
-    { "id": "rail-west", "layer": "infrastructure", "kind": "rail", "variant": "vertical", "x": 0, "y": 0, "width": 8, "height": 360, "rotation": 0, "z": 4 },
+    { "id": "road-north", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 16, "y": 18, "width": 208, "height": 10, "rotation": 0, "z": 5 },
+    { "id": "road-south", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 16, "y": 330, "width": 208, "height": 10, "rotation": 0, "z": 5 },
+    { "id": "road-west", "layer": "infrastructure", "kind": "road", "variant": "vertical", "x": 24, "y": 18, "width": 10, "height": 322, "rotation": 0, "z": 5 },
+    { "id": "road-east", "layer": "infrastructure", "kind": "road", "variant": "vertical", "x": 206, "y": 18, "width": 10, "height": 322, "rotation": 0, "z": 5 },
+    { "id": "road-north-cross", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 28, "y": 150, "width": 184, "height": 8, "rotation": 0, "z": 5 },
+    { "id": "road-central-cross", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 28, "y": 218, "width": 184, "height": 8, "rotation": 0, "z": 5 },
+    { "id": "road-west-spur", "layer": "infrastructure", "kind": "road", "variant": "vertical", "x": 93, "y": 28, "width": 7, "height": 122, "rotation": 0, "z": 5 },
+    { "id": "road-east-spur", "layer": "infrastructure", "kind": "road", "variant": "vertical", "x": 148, "y": 157, "width": 7, "height": 173, "rotation": 0, "z": 5 },
 
-    { "id": "road-west", "layer": "infrastructure", "kind": "road", "variant": "vertical", "x": 64, "y": 0, "width": 10, "height": 360, "rotation": 0, "z": 5 },
-    { "id": "road-east", "layer": "infrastructure", "kind": "road", "variant": "vertical", "x": 174, "y": 0, "width": 10, "height": 360, "rotation": 0, "z": 5 },
-    { "id": "road-north-west", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 0, "y": 72, "width": 74, "height": 10, "rotation": 0, "z": 5 },
-    { "id": "road-north-east", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 174, "y": 72, "width": 66, "height": 10, "rotation": 0, "z": 5 },
-    { "id": "road-middle", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 0, "y": 146, "width": 240, "height": 10, "rotation": 0, "z": 5 },
-    { "id": "road-south-middle", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 0, "y": 214, "width": 240, "height": 10, "rotation": 0, "z": 5 },
-    { "id": "road-south", "layer": "infrastructure", "kind": "road", "variant": "horizontal", "x": 0, "y": 282, "width": 240, "height": 10, "rotation": 0, "z": 5 },
+    { "id": "crosswalk-west-north", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 22, "y": 151, "width": 14, "height": 5, "rotation": 0, "z": 7 },
+    { "id": "crosswalk-east-north", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 204, "y": 151, "width": 14, "height": 5, "rotation": 0, "z": 7 },
+    { "id": "crosswalk-west-central", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 22, "y": 219, "width": 14, "height": 5, "rotation": 0, "z": 7 },
+    { "id": "crosswalk-east-central", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 204, "y": 219, "width": 14, "height": 5, "rotation": 0, "z": 7 },
 
-    { "id": "crosswalk-nw", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 62, "y": 74, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-ne", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 172, "y": 74, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-mw", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 62, "y": 148, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-me", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 172, "y": 148, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-smw", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 62, "y": 216, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-sme", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 172, "y": 216, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-sw", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 62, "y": 284, "width": 14, "height": 6, "rotation": 0, "z": 7 },
-    { "id": "crosswalk-se", "layer": "infrastructure", "kind": "crosswalk", "variant": "horizontal", "x": 172, "y": 284, "width": 14, "height": 6, "rotation": 0, "z": 7 },
+    { "id": "central-park", "layer": "venues", "kind": "venue", "variant": "central-park", "x": 39, "y": 36, "width": 58, "height": 112, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "中央社区公园", "en": "CENTRAL COMMUNITY PARK" } },
+    { "id": "performance", "layer": "venues", "kind": "venue", "variant": "performance", "x": 108, "y": 35, "width": 84, "height": 72, "rotation": 0, "z": 3, "shape": { "type": "polygon", "points": [[16, 0], [84, 0], [100, 20], [100, 80], [84, 100], [16, 100], [0, 80], [0, 20]] }, "label": { "zh": "社区体育与演艺中心", "en": "SPORTS + PERFORMANCE" } },
+    { "id": "sports", "layer": "venues", "kind": "venue", "variant": "sports", "x": 121, "y": 113, "width": 66, "height": 31, "rotation": 0, "z": 3, "shape": { "type": "rect" }, "label": { "zh": "社区运动馆", "en": "COMMUNITY SPORTS" } },
+    { "id": "entertainment", "layer": "venues", "kind": "venue", "variant": "entertainment", "x": 49, "y": 72, "width": 34, "height": 64, "rotation": 0, "z": 4, "shape": { "type": "rect" }, "label": { "zh": "游戏娱乐中心", "en": "GAMES + ENTERTAINMENT" } },
+    { "id": "bar", "layer": "venues", "kind": "venue", "variant": "bar", "x": 48, "y": 172, "width": 35, "height": 47, "rotation": 0, "z": 3, "shape": { "type": "rect" }, "label": { "zh": "夜生活与酒吧", "en": "NIGHTLIFE + BAR" } },
+    { "id": "night-market", "layer": "venues", "kind": "venue", "variant": "night-market", "x": 85, "y": 168, "width": 56, "height": 153, "rotation": 0, "z": 2, "shape": { "type": "polygon", "points": [[22, 0], [72, 0], [100, 17], [100, 83], [74, 100], [27, 100], [0, 83], [0, 20]] }, "label": { "zh": "中央社区广场", "en": "CENTRAL COMMUNITY PLAZA" } },
+    { "id": "cultural", "layer": "venues", "kind": "venue", "variant": "cultural", "x": 158, "y": 166, "width": 40, "height": 46, "rotation": 0, "z": 3, "shape": { "type": "rect" }, "label": { "zh": "文化阅读中心", "en": "CULTURE + READING" } },
+    { "id": "night-school", "layer": "venues", "kind": "venue", "variant": "night-school", "x": 164, "y": 235, "width": 39, "height": 74, "rotation": 0, "z": 3, "shape": { "type": "rect" }, "label": { "zh": "夜校与兴趣学习", "en": "NIGHT SCHOOL + INTERESTS" } },
+    { "id": "dining", "layer": "venues", "kind": "venue", "variant": "dining", "x": 48, "y": 250, "width": 41, "height": 57, "rotation": 0, "z": 3, "shape": { "type": "rect" }, "label": { "zh": "餐饮社交中心", "en": "FOOD + BEVERAGE" } },
+    { "id": "central-park-south", "layer": "venues", "kind": "venue", "variant": "central-park", "x": 141, "y": 242, "width": 20, "height": 68, "rotation": 0, "z": 1, "shape": { "type": "rect" }, "label": { "zh": "中央社区公园南园", "en": "SOUTH PARK" } },
 
-    { "id": "cultural", "layer": "venues", "kind": "venue", "variant": "cultural", "x": 10, "y": 18, "width": 48, "height": 50, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "文化建筑", "en": "CULTURE" } },
-    { "id": "dining", "layer": "venues", "kind": "venue", "variant": "dining", "x": 10, "y": 84, "width": 48, "height": 54, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "餐饮建筑", "en": "FOOD HALL" } },
-    { "id": "residential", "layer": "venues", "kind": "venue", "variant": "residential", "x": 10, "y": 160, "width": 48, "height": 50, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "共享居住", "en": "CO-LIVING" } },
-    { "id": "night-school", "layer": "venues", "kind": "venue", "variant": "night-school", "x": 10, "y": 228, "width": 50, "height": 48, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "夜校与兴趣培训", "en": "NIGHT SCHOOL" } },
-    { "id": "central-park", "layer": "venues", "kind": "venue", "variant": "central-park", "x": 84, "y": 18, "width": 72, "height": 124, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "中央公园", "en": "CENTRAL PARK" } },
-    { "id": "night-market", "layer": "venues", "kind": "venue", "variant": "night-market", "x": 80, "y": 160, "width": 48, "height": 50, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "城市广场 · 夜市", "en": "PLAZA + MARKET" } },
-    { "id": "performance", "layer": "venues", "kind": "venue", "variant": "performance", "x": 132, "y": 160, "width": 40, "height": 50, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "体育馆与演出中心", "en": "PERFORMANCE" } },
-    { "id": "creative-court", "layer": "venues", "kind": "venue", "variant": "creative-court", "x": 80, "y": 228, "width": 48, "height": 48, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "创意运动庭院", "en": "PLAY COURT" } },
-    { "id": "service", "layer": "venues", "kind": "venue", "variant": "service", "x": 80, "y": 298, "width": 48, "height": 46, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "综合服务建筑", "en": "SERVICE HUB" } },
-    { "id": "bar", "layer": "venues", "kind": "venue", "variant": "bar", "x": 184, "y": 18, "width": 46, "height": 50, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "酒吧建筑", "en": "BAR + TERRACE" } },
-    { "id": "entertainment", "layer": "venues", "kind": "venue", "variant": "entertainment", "x": 184, "y": 84, "width": 46, "height": 54, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "游戏娱乐建筑", "en": "ARCADE" } },
-    { "id": "sports", "layer": "venues", "kind": "venue", "variant": "sports", "x": 184, "y": 228, "width": 46, "height": 48, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "运动建筑", "en": "SPORTS CLUB" } },
-    { "id": "workshop", "layer": "venues", "kind": "venue", "variant": "workshop", "x": 184, "y": 298, "width": 46, "height": 46, "rotation": 0, "z": 2, "shape": { "type": "rect" }, "label": { "zh": "青年创作工坊", "en": "MAKER LAB" } },
-
-    { "id": "trees-a", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 10, "y": 66, "width": 48, "height": 5, "rotation": 0, "z": 6 },
-    { "id": "trees-b", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 184, "y": 66, "width": 46, "height": 5, "rotation": 0, "z": 6 },
-    { "id": "trees-c", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 80, "y": 208, "width": 92, "height": 5, "rotation": 0, "z": 6 },
-    { "id": "trees-d", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 184, "y": 274, "width": 46, "height": 5, "rotation": 0, "z": 6 },
-    { "id": "car-a", "layer": "decor", "kind": "decor", "variant": "car", "x": 67, "y": 112, "width": 4, "height": 11, "rotation": 0, "z": 8, "style": { "fill": "#d75c48" } },
-    { "id": "car-b", "layer": "decor", "kind": "decor", "variant": "car", "x": 177, "y": 250, "width": 4, "height": 11, "rotation": 0, "z": 8, "style": { "fill": "#f0b94a" } },
-    { "id": "car-c", "layer": "decor", "kind": "decor", "variant": "car", "x": 177, "y": 40, "width": 4, "height": 11, "rotation": 0, "z": 8, "style": { "fill": "#547d8b" } }
+    { "id": "trees-north-park", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 38, "y": 38, "width": 58, "height": 5, "rotation": 0, "z": 6 },
+    { "id": "trees-west-edge", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 36, "y": 45, "width": 5, "height": 264, "rotation": 90, "z": 6 },
+    { "id": "trees-east-edge", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 199, "y": 43, "width": 5, "height": 270, "rotation": 90, "z": 6 },
+    { "id": "trees-south-park", "layer": "decor", "kind": "decor", "variant": "tree-row", "x": 140, "y": 305, "width": 22, "height": 5, "rotation": 0, "z": 6 },
+    { "id": "plaza-fountain", "layer": "decor", "kind": "decor", "variant": "fountain", "x": 108, "y": 217, "width": 10, "height": 10, "rotation": 0, "z": 7 },
+    { "id": "plaza-market-tables", "layer": "decor", "kind": "decor", "variant": "market-tables", "x": 99, "y": 265, "width": 28, "height": 22, "rotation": 0, "z": 7 }
   ]
 }

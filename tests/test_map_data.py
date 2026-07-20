@@ -59,19 +59,18 @@ class MapDataTests(unittest.TestCase):
         display_only = set(self.map["simulation"]["displayOnlyObjectIds"])
         self.assertEqual(mappings, expected)
         self.assertEqual(len(mappings.values()), len(set(mappings.values())))
-        self.assertEqual(display_only, {"residential", "creative-court", "service", "workshop"})
+        self.assertEqual(display_only, set())
         self.assertFalse(set(mappings.values()) & display_only)
         semantic_ids = {
             item["id"] for item in self.map["objects"] if item["kind"] in {"venue", "building"}
         }
-        self.assertEqual(semantic_ids, set(mappings.values()) | display_only)
+        self.assertEqual(semantic_ids, set(mappings.values()) | {"central-park-south"})
 
-    def test_night_school_covers_source_venue_range(self):
+    def test_night_school_occupies_the_south_east_learning_block(self):
         night_school = next(item for item in self.map["objects"] if item["id"] == "night-school")
-        self.assertLessEqual(night_school["x"], 19)
-        self.assertGreaterEqual(night_school["x"] + night_school["width"], 52)
-        self.assertLessEqual(night_school["y"], 233)
-        self.assertGreaterEqual(night_school["y"] + night_school["height"], 267)
+        self.assertGreaterEqual(night_school["x"], 160)
+        self.assertGreaterEqual(night_school["y"], 230)
+        self.assertGreaterEqual(night_school["height"], 70)
 
     def test_demo_replay_is_self_contained(self):
         agents = {agent["id"] for agent in self.demo_replay["agents"]}
@@ -108,24 +107,24 @@ class MapDataTests(unittest.TestCase):
                     self.assertGreaterEqual(len(points), 3)
                     self.assertTrue(all(0 <= coordinate <= 100 for point in points for coordinate in point))
 
-    def test_reference_map_keeps_expected_venues(self):
+    def test_reference_map_matches_the_nine_facility_plan(self):
         expected = {
             "cultural",
             "dining",
-            "residential",
             "night-school",
-            "creative-court",
             "night-market",
             "central-park",
             "performance",
-            "service",
             "bar",
             "entertainment",
             "sports",
-            "workshop",
+            "central-park-south",
         }
         actual = {item["id"] for item in self.map["objects"] if item["kind"] == "venue"}
         self.assertEqual(actual, expected)
+        facilities = {item["id"]: item for item in self.map["objects"] if item["kind"] == "venue"}
+        self.assertIn("COMMUNITY PLAZA", facilities["night-market"]["label"]["en"])
+        self.assertIn("SPORTS + PERFORMANCE", facilities["performance"]["label"]["en"])
 
     def test_asset_atlases_match_catalog_geometry(self):
         self.assertEqual(self.catalog["schemaVersion"], 1)
