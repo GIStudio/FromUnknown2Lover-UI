@@ -35,7 +35,7 @@ import {
   buildRelationshipDashboard,
   linePath,
   relationshipPulse,
-} from "./relationship-dashboard.js?v=20260720-timeline-guide";
+} from "./relationship-dashboard.js?v=20260721-aggregate-dashboard";
 import {
   LOOP_PAUSE_MS,
   buildTimelineMarkers,
