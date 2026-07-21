@@ -1657,18 +1657,24 @@ h1 {
 }
 
 .timeline-events {
-  position: absolute;
-  inset: -15px 6px auto;
-  z-index: 3;
-  height: 13px;
-  pointer-events: none;
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  gap: 6px;
+  padding: 5px 2px 7px;
+}
+
+.timeline-event-strip {
+  margin-top: 8px;
+  overflow-x: auto;
+  border-top: 1px solid #c8bea4;
+  scrollbar-color: #837b68 transparent;
 }
 
 .timeline-event-marker {
-  position: absolute;
-  bottom: 0;
-  width: 18px;
-  height: 13px;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 20px;
   display: grid;
   place-items: center;
   padding: 0;
@@ -1681,8 +1687,6 @@ h1 {
   font-size: 7px;
   font-weight: 900;
   line-height: 1;
-  pointer-events: auto;
-  transform: translateX(-50%);
 }
 
 .timeline-event-marker::before {
@@ -1694,7 +1698,6 @@ h1 {
 
 .timeline-event-marker:hover,
 .timeline-event-marker:focus-visible {
-  z-index: 2;
   background: var(--coral);
   color: #fff8df;
   outline: 2px solid var(--blue);

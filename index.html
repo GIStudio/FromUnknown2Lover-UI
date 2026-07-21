@@ -132,9 +132,11 @@
               </div>
               <div class="timeline-track">
                 <input id="timeline" type="range" min="0" max="0" value="0" step="any" />
-                <div class="timeline-events" id="timeline-events" aria-label="Dialogue events on the replay timeline" data-i18n-aria-label="viewer.timelineEventsAria"></div>
               </div>
               <div class="timeline-ticks" id="timeline-ticks"></div>
+              <div class="timeline-event-strip" aria-label="Dialogue events on the replay timeline" data-i18n-aria-label="viewer.timelineEventsAria">
+                <div class="timeline-events" id="timeline-events"></div>
+              </div>
             </div>
             <label class="speed-control">
               <span data-i18n="viewer.speedLabel">SPEED</span>
@@ -227,6 +229,6 @@
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./app.js?v=20260721-aggregate-dashboard"></script>
+    <script type="module" src="./app.js?v=20260721-timeline-rail"></script>
   </body>
 </html>

@@ -1088,7 +1088,6 @@ function renderTimelineTicks() {
     button.type = "button";
     button.className = "timeline-event-marker";
     button.dataset.step = String(marker.step);
-    button.style.left = `${marker.position * 100}%`;
     button.textContent = String(marker.dialogueCount);
     const label = t("viewer.timelineEvent", {
       step: String(marker.step).padStart(2, "0"),
