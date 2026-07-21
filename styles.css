@@ -297,6 +297,34 @@ h1 {
   text-align: right;
 }
 
+.dashboard-mode-switch {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 7px 10px;
+  border-bottom: 2px solid var(--line);
+  background: #bdb397;
+}
+
+.dashboard-mode-switch button {
+  padding: 6px 4px 5px;
+  border: 2px solid #5f5a4b;
+  background: #e8dfc2;
+  color: #665f4e;
+  font-family: inherit;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.dashboard-mode-switch button[aria-pressed="true"] {
+  border-color: var(--line);
+  background: var(--sun);
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--line);
+  transform: translate(-1px, -1px);
+}
+
 .trajectory-card {
   padding: 12px;
   border-bottom: 3px solid var(--line);
@@ -380,38 +408,80 @@ h1 {
 .relationship-chart-key .attr { color: #a63246; }
 .relationship-chart-key .metric-divider { color: #706955; }
 
-.dashboard-metrics {
+.dashboard-gauges {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.dashboard-gauge {
+  min-width: 0;
+  position: relative;
+  aspect-ratio: 1 / 0.74;
+  overflow: hidden;
   border: 2px solid var(--line);
   background: #d7cdb0;
 }
 
-.dashboard-metric {
-  min-width: 0;
-  padding: 5px 4px;
-  text-align: center;
+.dashboard-gauge::before {
+  content: "";
+  position: absolute;
+  inset: 9% 8% auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(from 270deg, var(--gauge-color) 0deg var(--gauge-value), #817963 var(--gauge-value) 180deg, transparent 180deg);
+  clip-path: inset(0 0 50% 0);
 }
 
-.dashboard-metric + .dashboard-metric { border-left: 1px solid var(--line); }
+.dashboard-gauge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 26%;
+  width: 3px;
+  height: 31%;
+  background: var(--line);
+  box-shadow: 1px 0 0 rgb(255 255 255 / 55%);
+  transform: rotate(calc(-90deg + var(--gauge-value))) translateY(-50%);
+  transform-origin: bottom center;
+}
 
-.dashboard-metric b,
-.dashboard-metric em {
+.dashboard-gauge[data-has-data="false"]::before { background: #817963; }
+.dashboard-gauge[data-has-data="false"]::after { display: none; }
+.dashboard-gauge.familiarity { --gauge-color: #d28c32; }
+.dashboard-gauge.trust { --gauge-color: #477c91; }
+.dashboard-gauge.mutualAttraction { --gauge-color: #c94d5b; }
+
+.dashboard-gauge-dial {
+  position: absolute;
+  inset: auto 0 4px;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+}
+
+.dashboard-gauge b,
+.dashboard-gauge em {
   display: block;
   font-style: normal;
 }
 
-.dashboard-metric b { color: #706955; font-size: 7px; }
-.dashboard-metric em { margin-top: 2px; font-size: 10px; font-weight: 900; }
-.dashboard-metric.familiarity em { color: #b16d1f; }
-.dashboard-metric.trust em { color: #2f6278; }
-.dashboard-metric.mutualAttraction em { color: #a63246; }
+.dashboard-gauge b { color: #706955; font-size: 7px; }
+.dashboard-gauge em { margin-top: 2px; font-size: 12px; font-weight: 900; }
+.dashboard-gauge.familiarity em { color: #b16d1f; }
+.dashboard-gauge.trust em { color: #2f6278; }
+.dashboard-gauge.mutualAttraction em { color: #a63246; }
 
 .relationship-roster-section {
   min-height: 0;
   display: grid;
   grid-template-rows: auto 1fr;
   padding: 10px 9px 9px;
+}
+
+.relationship-dashboard[data-dashboard-mode="overview"] .relationship-roster-section {
+  display: none;
 }
 
 .roster-heading { margin-bottom: 7px; }

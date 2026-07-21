@@ -45,6 +45,10 @@
             <span data-i18n="viewer.dashboardTitle">RELATION PULSE</span>
             <b id="dashboard-summary">—</b>
           </div>
+          <div class="dashboard-mode-switch" role="group" aria-label="Dashboard view" data-i18n-aria-label="viewer.dashboardModeAria">
+            <button id="dashboard-overview-button" type="button" aria-pressed="true" data-i18n="viewer.dashboardOverview">OVERVIEW</button>
+            <button id="dashboard-individual-button" type="button" aria-pressed="false" data-i18n="viewer.dashboardIndividual">INDIVIDUAL</button>
+          </div>
           <section class="trajectory-card">
             <div class="trajectory-heading">
               <div>
@@ -57,7 +61,7 @@
             <div class="relationship-chart-key" aria-hidden="true">
               <span class="fam">FAM</span><span class="metric-divider" aria-hidden="true">·</span><span class="trust">TRUST</span><span class="metric-divider" aria-hidden="true">·</span><span class="attr">ATTR</span>
             </div>
-            <div class="dashboard-metrics" id="dashboard-metrics"></div>
+            <div class="dashboard-gauges" id="dashboard-metrics"></div>
           </section>
           <section class="relationship-roster-section">
             <div class="roster-heading">

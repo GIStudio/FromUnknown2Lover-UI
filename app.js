@@ -85,6 +85,8 @@ const dom = {
   profileGrid: document.querySelector("#profile-grid"),
   clearFocus: document.querySelector("#clear-focus"),
   dashboardSummary: document.querySelector("#dashboard-summary"),
+  dashboardOverviewButton: document.querySelector("#dashboard-overview-button"),
+  dashboardIndividualButton: document.querySelector("#dashboard-individual-button"),
   dashboardAgentName: document.querySelector("#dashboard-agent-name"),
   dashboardStage: document.querySelector("#dashboard-stage"),
   relationshipChart: document.querySelector("#relationship-chart"),
@@ -101,6 +103,7 @@ const state = {
   mapRenderer: null,
   replayLayout: null,
   relationshipDashboard: null,
+  dashboardMode: "overview",
   dashboardAgentId: null,
   relationPulseStep: null,
   relationPulseStartedAt: 0,
@@ -667,13 +670,18 @@ function renderDashboardMetrics(point) {
   dom.dashboardMetrics.replaceChildren();
   RELATIONSHIP_METRICS.forEach(([metric, label]) => {
     const value = percentage(point?.metrics?.[metric]);
-    const metricElement = document.createElement("span");
-    metricElement.className = `dashboard-metric ${metric}`;
+    const metricElement = document.createElement("div");
+    metricElement.className = `dashboard-gauge ${metric}`;
+    metricElement.style.setProperty("--gauge-value", `${Math.round((point?.metrics?.[metric] || 0) * 180)}deg`);
+    metricElement.dataset.hasData = String(value !== null);
+    const dial = document.createElement("span");
+    dial.className = "dashboard-gauge-dial";
     const name = document.createElement("b");
     name.textContent = label;
     const valueElement = document.createElement("em");
     valueElement.textContent = value === null ? "—" : `${value}%`;
-    metricElement.append(name, valueElement);
+    dial.append(name, valueElement);
+    metricElement.append(dial);
     dom.dashboardMetrics.append(metricElement);
   });
 }
@@ -710,6 +718,7 @@ function renderRelationshipRoster(currentAgentId) {
     values.textContent = RELATIONSHIP_METRICS.map(([metric, label]) => `${label[0]}${percentage(point?.metrics?.[metric]) ?? "—"}`).join(" ");
     card.append(name, stage, trend, values);
     card.addEventListener("click", () => {
+      state.dashboardMode = "individual";
       state.dashboardAgentId = agent.id;
       state.focusedAgentId = agent.id;
       render();
@@ -720,19 +729,26 @@ function renderRelationshipRoster(currentAgentId) {
 
 function renderRelationshipDashboard() {
   if (!state.relationshipDashboard) return;
+  const overviewMode = state.dashboardMode === "overview";
   const selectedId = state.focusedAgentId ?? state.dashboardAgentId ?? state.data.agents[0]?.id;
   const selectedAgent = agentById(selectedId) || state.data.agents[0];
-  if (!selectedAgent) return;
+  if (!selectedAgent && !overviewMode) return;
   state.dashboardAgentId = selectedAgent.id;
-  const series = dashboardSeries(selectedAgent.id);
+  const series = overviewMode ? state.relationshipDashboard.overview : dashboardSeries(selectedAgent.id);
   const point = series[dashboardSeriesIndex(series)] || series[series.length - 1];
   const dyadCount = point?.dyadCount || 0;
+  const dashboardRoot = dom.dashboardSummary.closest(".relationship-dashboard");
+  dashboardRoot.dataset.dashboardMode = state.dashboardMode;
+  dom.dashboardOverviewButton.setAttribute("aria-pressed", String(overviewMode));
+  dom.dashboardIndividualButton.setAttribute("aria-pressed", String(!overviewMode));
   dom.dashboardSummary.textContent = t("viewer.dashboardSummary", {
     agents: state.data.agents.length,
     dyads: dyadCount,
   });
-  dom.dashboardAgentName.textContent = selectedAgent.name;
-  dom.dashboardStage.textContent = point?.dyadCount ? relationshipStageLabel(point.stage) : t("viewer.dashboardNoDyad");
+  dom.dashboardAgentName.textContent = overviewMode ? t("viewer.dashboardDistrict") : selectedAgent.name;
+  dom.dashboardStage.textContent = overviewMode
+    ? t("viewer.dashboardActiveAgents", { agents: point?.activeAgentCount || 0 })
+    : (point?.dyadCount ? relationshipStageLabel(point.stage) : t("viewer.dashboardNoDyad"));
   renderRelationshipChart(series);
   renderDashboardMetrics(point);
   renderRelationshipRoster(selectedAgent.id);
@@ -899,6 +915,7 @@ function renderAgents(frame, currentEvents, activeDialogueByAgent = new Map(), m
     }
 
     button.addEventListener("click", () => {
+      state.dashboardMode = "individual";
       state.focusedAgentId = profile.id;
       state.dashboardAgentId = profile.id;
       render();
@@ -1217,6 +1234,7 @@ function installData(raw, message = t("viewer.replayLoaded")) {
   state.lastMovementSnapshot = null;
   state.data = normalizeData(raw);
   state.relationshipDashboard = buildRelationshipDashboard(state.data);
+  state.dashboardMode = "overview";
   state.dashboardAgentId = state.data.agents[0]?.id ?? null;
   state.relationPulseStep = null;
   state.relationPulseStartedAt = 0;
@@ -1268,6 +1286,14 @@ async function loadWorldMap() {
 }
 
 dom.playButton.addEventListener("click", togglePlayback);
+dom.dashboardOverviewButton.addEventListener("click", () => {
+  state.dashboardMode = "overview";
+  render();
+});
+dom.dashboardIndividualButton.addEventListener("click", () => {
+  state.dashboardMode = "individual";
+  render();
+});
 dom.movementMode.addEventListener("change", () => {
   state.movementMode = normalizeMovementMode(dom.movementMode.value);
   window.localStorage.setItem(MOVEMENT_MODE_KEY, state.movementMode);

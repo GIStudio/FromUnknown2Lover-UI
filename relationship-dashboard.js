@@ -82,10 +82,20 @@ export function buildRelationshipDashboard({ agents, frames, events }) {
     });
   const latestByDyad = new Map();
   const byAgent = new Map(agents.map((agent) => [Number(agent.id), []]));
+  const overview = [];
 
   sortedFrames.forEach((frame) => {
     const changed = eventsByStep.get(frame.step) || [];
     changed.forEach((record) => latestByDyad.set(relationshipKey(record), record));
+    const districtRecords = [...latestByDyad.values()];
+    overview.push({
+      step: frame.step,
+      time: frame.time,
+      metrics: Object.fromEntries(RELATIONSHIP_METRICS.map(([metric]) => [metric, average(districtRecords, metric)])),
+      dyadCount: districtRecords.length,
+      activeAgentCount: new Set(districtRecords.flatMap((record) => [record.source, record.target])).size,
+      changes: changed,
+    });
     agents.forEach((agent) => {
       const id = Number(agent.id);
       const records = [...latestByDyad.values()].filter((record) => record.source === id || record.target === id);
@@ -101,7 +111,7 @@ export function buildRelationshipDashboard({ agents, frames, events }) {
       });
     });
   });
-  return { frames: sortedFrames, byAgent };
+  return { frames: sortedFrames, byAgent, overview };
 }
 
 function milestoneStatus(snapshot, key) {

@@ -21,8 +21,13 @@ const dashboard = buildRelationshipDashboard({
   events: [event(0, 0.2, 0.1, 0.1), event(1, 0.4, 0.25, 0.2), event(2, 0.45, 0.2, 0.1)],
 });
 const series = dashboard.byAgent.get(1);
+const overview = dashboard.overview;
 assert.equal(series.length, 3);
 assert.equal(series[1].metrics.familiarity, 0.4);
+assert.equal(overview.length, 3);
+assert.equal(overview[1].metrics.familiarity, 0.4);
+assert.equal(overview[1].dyadCount, 1);
+assert.equal(overview[1].activeAgentCount, 2);
 assert.equal(dashboard.byAgent.get(3)[2].dyadCount, 0);
 assert.equal(relationshipPulse(series, 1).symbol, "♥");
 assert.equal(relationshipPulse(series, 2).tone, "regression");
