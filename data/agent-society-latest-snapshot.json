@@ -1,0 +1,5298 @@
+{
+  "meta": {
+    "title": "AgentSociety latest sample — 2026-07-22 16:51",
+    "scene": "AgentSociety simulation space",
+    "description": "Static initialization snapshot from a profile-only export; no step snapshots or interaction event stream were supplied.",
+    "source": "AgentSociety latest replay sample archive (profile-only export)",
+    "datasets": [
+      "core.agent_profile",
+      "dating_space.env_state"
+    ],
+    "coordinateSystem": {
+      "type": "normalized",
+      "unit": "normalized",
+      "origin": "top_left",
+      "width": 100,
+      "height": 100
+    }
+  },
+  "agents": [
+    {
+      "id": 1,
+      "name": "Lin Chen",
+      "role": "participant",
+      "profile": {
+        "id": 1,
+        "name": "Lin Chen",
+        "age": 27,
+        "gender": "male",
+        "occupation": "product manager",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "warm_idea_spark",
+        "baseline_mood": "reserved",
+        "openness": 0.74,
+        "conscientiousness": 0.49,
+        "extraversion": 0.71,
+        "agreeableness": 0.74,
+        "neuroticism": 0.39,
+        "social_energy": 0.73,
+        "social_anxiety": 0.35,
+        "self_disclosure_tendency": 0.71,
+        "approach_confidence": 0.67,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Su Wanqing",
+      "role": "participant",
+      "profile": {
+        "id": 2,
+        "name": "Su Wanqing",
+        "age": 30,
+        "gender": "female",
+        "occupation": "UX researcher",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "reliable_detail_keeper",
+        "baseline_mood": "optimistic",
+        "openness": 0.48,
+        "conscientiousness": 0.75,
+        "extraversion": 0.34,
+        "agreeableness": 0.53,
+        "neuroticism": 0.44,
+        "social_energy": 0.38,
+        "social_anxiety": 0.56,
+        "self_disclosure_tendency": 0.43,
+        "approach_confidence": 0.48,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "warm_selective",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Zhou Yifan",
+      "role": "participant",
+      "profile": {
+        "id": 3,
+        "name": "Zhou Yifan",
+        "age": 33,
+        "gender": "male",
+        "occupation": "software engineer",
+        "education": "bachelor",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.8,
+        "conscientiousness": 0.43,
+        "extraversion": 0.77,
+        "agreeableness": 0.47,
+        "neuroticism": 0.33,
+        "social_energy": 0.8690000000000001,
+        "social_anxiety": 0.1885,
+        "self_disclosure_tendency": 0.55,
+        "approach_confidence": 0.9322,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ENTP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Mia Zhang",
+      "role": "participant",
+      "profile": {
+        "id": 4,
+        "name": "Mia Zhang",
+        "age": 24,
+        "gender": "female",
+        "occupation": "urban planner",
+        "education": "master",
+        "city_life_stage": "career_transition",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "soft_spontaneous_observer",
+        "baseline_mood": "curious",
+        "openness": 0.58,
+        "conscientiousness": 0.44,
+        "extraversion": 0.39,
+        "agreeableness": 0.7,
+        "neuroticism": 0.39,
+        "social_energy": 0.43,
+        "social_anxiety": 0.51,
+        "self_disclosure_tendency": 0.7,
+        "approach_confidence": 0.47,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISFP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "warm_selective",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Guo Yu",
+      "role": "participant",
+      "profile": {
+        "id": 5,
+        "name": "Guo Yu",
+        "age": 27,
+        "gender": "male",
+        "occupation": "brand strategist",
+        "education": "bachelor",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "strategic_reserved",
+        "baseline_mood": "calm",
+        "openness": 0.67,
+        "conscientiousness": 0.77,
+        "extraversion": 0.29,
+        "agreeableness": 0.58,
+        "neuroticism": 0.49,
+        "social_energy": 0.33,
+        "social_anxiety": 0.61,
+        "self_disclosure_tendency": 0.38,
+        "approach_confidence": 0.43,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Chen Yuning",
+      "role": "participant",
+      "profile": {
+        "id": 6,
+        "name": "Chen Yuning",
+        "age": 30,
+        "gender": "female",
+        "occupation": "data analyst",
+        "education": "master",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "quiet_depth_builder",
+        "baseline_mood": "focused",
+        "openness": 0.69,
+        "conscientiousness": 0.74,
+        "extraversion": 0.32,
+        "agreeableness": 0.78,
+        "neuroticism": 0.47,
+        "social_energy": 0.35,
+        "social_anxiety": 0.59,
+        "self_disclosure_tendency": 0.62,
+        "approach_confidence": 0.39,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INFJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "He Ziming",
+      "role": "participant",
+      "profile": {
+        "id": 7,
+        "name": "He Ziming",
+        "age": 33,
+        "gender": "male",
+        "occupation": "high school teacher",
+        "education": "associate",
+        "city_life_stage": "newcomer",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.48,
+        "conscientiousness": 0.75,
+        "extraversion": 0.74,
+        "agreeableness": 0.5,
+        "neuroticism": 0.42,
+        "social_energy": 0.8360000000000001,
+        "social_anxiety": 0.20800000000000002,
+        "self_disclosure_tendency": 0.52,
+        "approach_confidence": 0.8967999999999999,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ESTJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "warm_selective",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "name": "Liu Shiyu",
+      "role": "participant",
+      "profile": {
+        "id": 8,
+        "name": "Liu Shiyu",
+        "age": 24,
+        "gender": "female",
+        "occupation": "architectural designer",
+        "education": "bachelor",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "gentle_values_listener",
+        "baseline_mood": "playful",
+        "openness": 0.8,
+        "conscientiousness": 0.43,
+        "extraversion": 0.37,
+        "agreeableness": 0.72,
+        "neuroticism": 0.41,
+        "social_energy": 0.41,
+        "social_anxiety": 0.54,
+        "self_disclosure_tendency": 0.68,
+        "approach_confidence": 0.45,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INFP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "name": "Xu Minghao",
+      "role": "participant",
+      "profile": {
+        "id": 9,
+        "name": "Xu Minghao",
+        "age": 27,
+        "gender": "male",
+        "occupation": "community organizer",
+        "education": "bachelor",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "considerate_host",
+        "baseline_mood": "reserved",
+        "openness": 0.53,
+        "conscientiousness": 0.7,
+        "extraversion": 0.79,
+        "agreeableness": 0.67,
+        "neuroticism": 0.31,
+        "social_energy": 0.81,
+        "social_anxiety": 0.27,
+        "self_disclosure_tendency": 0.79,
+        "approach_confidence": 0.75,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESFJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "warm_selective",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "name": "Wang Qiao",
+      "role": "participant",
+      "profile": {
+        "id": 10,
+        "name": "Wang Qiao",
+        "age": 30,
+        "gender": "female",
+        "occupation": "financial analyst",
+        "education": "master",
+        "city_life_stage": "career_transition",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "curious_analyst",
+        "baseline_mood": "optimistic",
+        "openness": 0.72,
+        "conscientiousness": 0.51,
+        "extraversion": 0.29,
+        "agreeableness": 0.58,
+        "neuroticism": 0.49,
+        "social_energy": 0.33,
+        "social_anxiety": 0.61,
+        "self_disclosure_tendency": 0.38,
+        "approach_confidence": 0.43,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INTP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "name": "Tang Yichen",
+      "role": "participant",
+      "profile": {
+        "id": 11,
+        "name": "Tang Yichen",
+        "age": 33,
+        "gender": "male",
+        "occupation": "clinical counselor assistant",
+        "education": "bachelor",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "energetic_doer",
+        "baseline_mood": "reflective",
+        "openness": 0.51,
+        "conscientiousness": 0.52,
+        "extraversion": 0.71,
+        "agreeableness": 0.53,
+        "neuroticism": 0.39,
+        "social_energy": 0.73,
+        "social_anxiety": 0.35,
+        "self_disclosure_tendency": 0.49,
+        "approach_confidence": 0.73,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESTP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "name": "Zheng Xiaoman",
+      "role": "participant",
+      "profile": {
+        "id": 12,
+        "name": "Zheng Xiaoman",
+        "age": 24,
+        "gender": "female",
+        "occupation": "game designer",
+        "education": "master",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "steady_caretaker",
+        "baseline_mood": "curious",
+        "openness": 0.48,
+        "conscientiousness": 0.75,
+        "extraversion": 0.34,
+        "agreeableness": 0.75,
+        "neuroticism": 0.44,
+        "social_energy": 0.38,
+        "social_anxiety": 0.56,
+        "self_disclosure_tendency": 0.65,
+        "approach_confidence": 0.42,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISFJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "name": "Song Rui",
+      "role": "participant",
+      "profile": {
+        "id": 13,
+        "name": "Song Rui",
+        "age": 27,
+        "gender": "male",
+        "occupation": "museum educator",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "decisive_organizer",
+        "baseline_mood": "calm",
+        "openness": 0.74,
+        "conscientiousness": 0.69,
+        "extraversion": 0.77,
+        "agreeableness": 0.47,
+        "neuroticism": 0.33,
+        "social_energy": 0.79,
+        "social_anxiety": 0.29,
+        "self_disclosure_tendency": 0.55,
+        "approach_confidence": 0.79,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENTJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "name": "Yu Ke",
+      "role": "participant",
+      "profile": {
+        "id": 14,
+        "name": "Yu Ke",
+        "age": 30,
+        "gender": "female",
+        "occupation": "fitness coach",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.58,
+        "conscientiousness": 0.44,
+        "extraversion": 0.79,
+        "agreeableness": 0.67,
+        "neuroticism": 0.37,
+        "social_energy": 0.8910000000000001,
+        "social_anxiety": 0.17550000000000002,
+        "self_disclosure_tendency": 0.79,
+        "approach_confidence": 0.885,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ESFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "warm_selective",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "name": "Huang Jingyu",
+      "role": "participant",
+      "profile": {
+        "id": 15,
+        "name": "Huang Jingyu",
+        "age": 33,
+        "gender": "male",
+        "occupation": "photographer",
+        "education": "associate",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "calm_hands_on",
+        "baseline_mood": "warm",
+        "openness": 0.48,
+        "conscientiousness": 0.54,
+        "extraversion": 0.29,
+        "agreeableness": 0.58,
+        "neuroticism": 0.49,
+        "social_energy": 0.33,
+        "social_anxiety": 0.61,
+        "self_disclosure_tendency": 0.38,
+        "approach_confidence": 0.43,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "name": "Duan Xia",
+      "role": "participant",
+      "profile": {
+        "id": 16,
+        "name": "Duan Xia",
+        "age": 24,
+        "gender": "female",
+        "occupation": "public relations specialist",
+        "education": "bachelor",
+        "city_life_stage": "career_transition",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "attentive_connector",
+        "baseline_mood": "playful",
+        "openness": 0.69,
+        "conscientiousness": 0.74,
+        "extraversion": 0.71,
+        "agreeableness": 0.74,
+        "neuroticism": 0.39,
+        "social_energy": 0.73,
+        "social_anxiety": 0.35,
+        "self_disclosure_tendency": 0.71,
+        "approach_confidence": 0.67,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENFJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "name": "Luo Cheng",
+      "role": "participant",
+      "profile": {
+        "id": 17,
+        "name": "Luo Cheng",
+        "age": 27,
+        "gender": "male",
+        "occupation": "legal assistant",
+        "education": "bachelor",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.77,
+        "conscientiousness": 0.46,
+        "extraversion": 0.74,
+        "agreeableness": 0.72,
+        "neuroticism": 0.36,
+        "social_energy": 0.8360000000000001,
+        "social_anxiety": 0.20800000000000002,
+        "self_disclosure_tendency": 0.74,
+        "approach_confidence": 0.826,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ENFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "name": "Gao Yiran",
+      "role": "participant",
+      "profile": {
+        "id": 18,
+        "name": "Gao Yiran",
+        "age": 30,
+        "gender": "female",
+        "occupation": "music producer",
+        "education": "master",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "reliable_detail_keeper",
+        "baseline_mood": "optimistic",
+        "openness": 0.51,
+        "conscientiousness": 0.72,
+        "extraversion": 0.37,
+        "agreeableness": 0.51,
+        "neuroticism": 0.41,
+        "social_energy": 0.41,
+        "social_anxiety": 0.54,
+        "self_disclosure_tendency": 0.46,
+        "approach_confidence": 0.51,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "name": "Fang Yile",
+      "role": "participant",
+      "profile": {
+        "id": 19,
+        "name": "Fang Yile",
+        "age": 33,
+        "gender": "male",
+        "occupation": "book editor",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.82,
+        "conscientiousness": 0.41,
+        "extraversion": 0.79,
+        "agreeableness": 0.45,
+        "neuroticism": 0.31,
+        "social_energy": 0.8910000000000001,
+        "social_anxiety": 0.17550000000000002,
+        "self_disclosure_tendency": 0.57,
+        "approach_confidence": 0.9558,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ENTP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "name": "Ma Linxi",
+      "role": "participant",
+      "profile": {
+        "id": 20,
+        "name": "Ma Linxi",
+        "age": 24,
+        "gender": "female",
+        "occupation": "startup operator",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "soft_spontaneous_observer",
+        "baseline_mood": "curious",
+        "openness": 0.48,
+        "conscientiousness": 0.54,
+        "extraversion": 0.29,
+        "agreeableness": 0.8,
+        "neuroticism": 0.49,
+        "social_energy": 0.33,
+        "social_anxiety": 0.61,
+        "self_disclosure_tendency": 0.6,
+        "approach_confidence": 0.37,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISFP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "secure",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "name": "Qin Haoran",
+      "role": "participant",
+      "profile": {
+        "id": 21,
+        "name": "Qin Haoran",
+        "age": 27,
+        "gender": "male",
+        "occupation": "graduate student",
+        "education": "bachelor",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "strategic_reserved",
+        "baseline_mood": "calm",
+        "openness": 0.69,
+        "conscientiousness": 0.74,
+        "extraversion": 0.32,
+        "agreeableness": 0.56,
+        "neuroticism": 0.53,
+        "social_energy": 0.35,
+        "social_anxiety": 0.59,
+        "self_disclosure_tendency": 0.41,
+        "approach_confidence": 0.45,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "name": "Ni Yue",
+      "role": "participant",
+      "profile": {
+        "id": 22,
+        "name": "Ni Yue",
+        "age": 30,
+        "gender": "female",
+        "occupation": "coffee shop manager",
+        "education": "master",
+        "city_life_stage": "career_transition",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "quiet_depth_builder",
+        "baseline_mood": "focused",
+        "openness": 0.72,
+        "conscientiousness": 0.72,
+        "extraversion": 0.34,
+        "agreeableness": 0.75,
+        "neuroticism": 0.44,
+        "social_energy": 0.38,
+        "social_anxiety": 0.56,
+        "self_disclosure_tendency": 0.65,
+        "approach_confidence": 0.42,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INFJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "name": "Jiang Mu",
+      "role": "participant",
+      "profile": {
+        "id": 23,
+        "name": "Jiang Mu",
+        "age": 33,
+        "gender": "male",
+        "occupation": "industrial designer",
+        "education": "associate",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "structured_pragmatist",
+        "baseline_mood": "warm",
+        "openness": 0.51,
+        "conscientiousness": 0.72,
+        "extraversion": 0.77,
+        "agreeableness": 0.47,
+        "neuroticism": 0.33,
+        "social_energy": 0.79,
+        "social_anxiety": 0.29,
+        "self_disclosure_tendency": 0.55,
+        "approach_confidence": 0.79,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESTJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "name": "Ye Jiaxin",
+      "role": "participant",
+      "profile": {
+        "id": 24,
+        "name": "Ye Jiaxin",
+        "age": 24,
+        "gender": "female",
+        "occupation": "language tutor",
+        "education": "bachelor",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "gentle_values_listener",
+        "baseline_mood": "playful",
+        "openness": 0.82,
+        "conscientiousness": 0.41,
+        "extraversion": 0.39,
+        "agreeableness": 0.7,
+        "neuroticism": 0.39,
+        "social_energy": 0.43,
+        "social_anxiety": 0.51,
+        "self_disclosure_tendency": 0.7,
+        "approach_confidence": 0.47,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INFP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "warm_selective",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "name": "Xie Yuchen",
+      "role": "participant",
+      "profile": {
+        "id": 25,
+        "name": "Xie Yuchen",
+        "age": 27,
+        "gender": "male",
+        "occupation": "civil servant",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "considerate_host",
+        "baseline_mood": "reserved",
+        "openness": 0.43,
+        "conscientiousness": 0.8,
+        "extraversion": 0.69,
+        "agreeableness": 0.77,
+        "neuroticism": 0.41,
+        "social_energy": 0.71,
+        "social_anxiety": 0.37,
+        "self_disclosure_tendency": 0.69,
+        "approach_confidence": 0.65,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESFJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "secure",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "name": "Feng Yutong",
+      "role": "participant",
+      "profile": {
+        "id": 26,
+        "name": "Feng Yutong",
+        "age": 30,
+        "gender": "female",
+        "occupation": "product manager",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "curious_analyst",
+        "baseline_mood": "optimistic",
+        "openness": 0.74,
+        "conscientiousness": 0.49,
+        "extraversion": 0.32,
+        "agreeableness": 0.56,
+        "neuroticism": 0.47,
+        "social_energy": 0.35,
+        "social_anxiety": 0.59,
+        "self_disclosure_tendency": 0.41,
+        "approach_confidence": 0.45,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INTP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "name": "Deng Kai",
+      "role": "participant",
+      "profile": {
+        "id": 27,
+        "name": "Deng Kai",
+        "age": 33,
+        "gender": "male",
+        "occupation": "UX researcher",
+        "education": "bachelor",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.53,
+        "conscientiousness": 0.49,
+        "extraversion": 0.74,
+        "agreeableness": 0.5,
+        "neuroticism": 0.36,
+        "social_energy": 0.8360000000000001,
+        "social_anxiety": 0.20800000000000002,
+        "self_disclosure_tendency": 0.52,
+        "approach_confidence": 0.8967999999999999,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ESTP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "warm_selective",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "name": "Bai Xinyi",
+      "role": "participant",
+      "profile": {
+        "id": 28,
+        "name": "Bai Xinyi",
+        "age": 24,
+        "gender": "female",
+        "occupation": "software engineer",
+        "education": "master",
+        "city_life_stage": "career_transition",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "steady_caretaker",
+        "baseline_mood": "curious",
+        "openness": 0.51,
+        "conscientiousness": 0.72,
+        "extraversion": 0.37,
+        "agreeableness": 0.72,
+        "neuroticism": 0.47,
+        "social_energy": 0.41,
+        "social_anxiety": 0.54,
+        "self_disclosure_tendency": 0.68,
+        "approach_confidence": 0.45,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISFJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "name": "Wei Zhe",
+      "role": "participant",
+      "profile": {
+        "id": 29,
+        "name": "Wei Zhe",
+        "age": 27,
+        "gender": "male",
+        "occupation": "urban planner",
+        "education": "bachelor",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "decisive_organizer",
+        "baseline_mood": "calm",
+        "openness": 0.77,
+        "conscientiousness": 0.67,
+        "extraversion": 0.79,
+        "agreeableness": 0.45,
+        "neuroticism": 0.31,
+        "social_energy": 0.81,
+        "social_anxiety": 0.27,
+        "self_disclosure_tendency": 0.57,
+        "approach_confidence": 0.81,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENTJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "name": "Xia Qing",
+      "role": "participant",
+      "profile": {
+        "id": 30,
+        "name": "Xia Qing",
+        "age": 30,
+        "gender": "female",
+        "occupation": "brand strategist",
+        "education": "master",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.48,
+        "conscientiousness": 0.54,
+        "extraversion": 0.69,
+        "agreeableness": 0.77,
+        "neuroticism": 0.41,
+        "social_energy": 0.781,
+        "social_anxiety": 0.2405,
+        "self_disclosure_tendency": 0.69,
+        "approach_confidence": 0.767,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ESFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "secure",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "name": "Han Shuo",
+      "role": "participant",
+      "profile": {
+        "id": 31,
+        "name": "Han Shuo",
+        "age": 33,
+        "gender": "male",
+        "occupation": "data analyst",
+        "education": "associate",
+        "city_life_stage": "newcomer",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "calm_hands_on",
+        "baseline_mood": "warm",
+        "openness": 0.51,
+        "conscientiousness": 0.52,
+        "extraversion": 0.32,
+        "agreeableness": 0.56,
+        "neuroticism": 0.47,
+        "social_energy": 0.35,
+        "social_anxiety": 0.59,
+        "self_disclosure_tendency": 0.41,
+        "approach_confidence": 0.45,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "name": "Tian Ruoxi",
+      "role": "participant",
+      "profile": {
+        "id": 32,
+        "name": "Tian Ruoxi",
+        "age": 24,
+        "gender": "female",
+        "occupation": "high school teacher",
+        "education": "bachelor",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.72,
+        "conscientiousness": 0.72,
+        "extraversion": 0.74,
+        "agreeableness": 0.72,
+        "neuroticism": 0.36,
+        "social_energy": 0.8360000000000001,
+        "social_anxiety": 0.20800000000000002,
+        "self_disclosure_tendency": 0.74,
+        "approach_confidence": 0.826,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ENFJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "name": "Cao Yuan",
+      "role": "participant",
+      "profile": {
+        "id": 33,
+        "name": "Cao Yuan",
+        "age": 27,
+        "gender": "male",
+        "occupation": "architectural designer",
+        "education": "bachelor",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "warm_idea_spark",
+        "baseline_mood": "reserved",
+        "openness": 0.8,
+        "conscientiousness": 0.43,
+        "extraversion": 0.77,
+        "agreeableness": 0.69,
+        "neuroticism": 0.33,
+        "social_energy": 0.79,
+        "social_anxiety": 0.29,
+        "self_disclosure_tendency": 0.77,
+        "approach_confidence": 0.72,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "name": "Mo Hanyue",
+      "role": "participant",
+      "profile": {
+        "id": 34,
+        "name": "Mo Hanyue",
+        "age": 30,
+        "gender": "female",
+        "occupation": "community organizer",
+        "education": "master",
+        "city_life_stage": "career_transition",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "reliable_detail_keeper",
+        "baseline_mood": "optimistic",
+        "openness": 0.53,
+        "conscientiousness": 0.7,
+        "extraversion": 0.39,
+        "agreeableness": 0.48,
+        "neuroticism": 0.39,
+        "social_energy": 0.43,
+        "social_anxiety": 0.51,
+        "self_disclosure_tendency": 0.48,
+        "approach_confidence": 0.53,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "name": "Shen Yao",
+      "role": "participant",
+      "profile": {
+        "id": 35,
+        "name": "Shen Yao",
+        "age": 33,
+        "gender": "male",
+        "occupation": "financial analyst",
+        "education": "bachelor",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.72,
+        "conscientiousness": 0.51,
+        "extraversion": 0.69,
+        "agreeableness": 0.55,
+        "neuroticism": 0.47,
+        "social_energy": 0.781,
+        "social_anxiety": 0.2405,
+        "self_disclosure_tendency": 0.47,
+        "approach_confidence": 0.8377999999999999,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ENTP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 36,
+      "name": "An Ruo",
+      "role": "participant",
+      "profile": {
+        "id": 36,
+        "name": "An Ruo",
+        "age": 24,
+        "gender": "female",
+        "occupation": "clinical counselor assistant",
+        "education": "master",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "soft_spontaneous_observer",
+        "baseline_mood": "curious",
+        "openness": 0.51,
+        "conscientiousness": 0.52,
+        "extraversion": 0.32,
+        "agreeableness": 0.78,
+        "neuroticism": 0.47,
+        "social_energy": 0.35,
+        "social_anxiety": 0.59,
+        "self_disclosure_tendency": 0.62,
+        "approach_confidence": 0.39,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISFP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "name": "Liang Siyi",
+      "role": "participant",
+      "profile": {
+        "id": 37,
+        "name": "Liang Siyi",
+        "age": 27,
+        "gender": "male",
+        "occupation": "game designer",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "stable_communication"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "strategic_reserved",
+        "baseline_mood": "calm",
+        "openness": 0.72,
+        "conscientiousness": 0.72,
+        "extraversion": 0.34,
+        "agreeableness": 0.53,
+        "neuroticism": 0.44,
+        "social_energy": 0.38,
+        "social_anxiety": 0.56,
+        "self_disclosure_tendency": 0.43,
+        "approach_confidence": 0.48,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "warm_selective",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "name": "Kong Ling",
+      "role": "participant",
+      "profile": {
+        "id": 38,
+        "name": "Kong Ling",
+        "age": 30,
+        "gender": "female",
+        "occupation": "museum educator",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "quiet_depth_builder",
+        "baseline_mood": "focused",
+        "openness": 0.74,
+        "conscientiousness": 0.69,
+        "extraversion": 0.37,
+        "agreeableness": 0.72,
+        "neuroticism": 0.41,
+        "social_energy": 0.41,
+        "social_anxiety": 0.54,
+        "self_disclosure_tendency": 0.68,
+        "approach_confidence": 0.45,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INFJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "name": "Pan Jun",
+      "role": "participant",
+      "profile": {
+        "id": 39,
+        "name": "Pan Jun",
+        "age": 33,
+        "gender": "male",
+        "occupation": "fitness coach",
+        "education": "associate",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "structured_pragmatist",
+        "baseline_mood": "warm",
+        "openness": 0.53,
+        "conscientiousness": 0.7,
+        "extraversion": 0.79,
+        "agreeableness": 0.45,
+        "neuroticism": 0.31,
+        "social_energy": 0.81,
+        "social_anxiety": 0.27,
+        "self_disclosure_tendency": 0.57,
+        "approach_confidence": 0.81,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESTJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "name": "Qi Sining",
+      "role": "participant",
+      "profile": {
+        "id": 40,
+        "name": "Qi Sining",
+        "age": 24,
+        "gender": "female",
+        "occupation": "photographer",
+        "education": "bachelor",
+        "city_life_stage": "career_transition",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "gentle_values_listener",
+        "baseline_mood": "playful",
+        "openness": 0.72,
+        "conscientiousness": 0.51,
+        "extraversion": 0.29,
+        "agreeableness": 0.8,
+        "neuroticism": 0.49,
+        "social_energy": 0.33,
+        "social_anxiety": 0.61,
+        "self_disclosure_tendency": 0.6,
+        "approach_confidence": 0.37,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INFP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "secure",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "name": "Lu Chenxi",
+      "role": "participant",
+      "profile": {
+        "id": 41,
+        "name": "Lu Chenxi",
+        "age": 27,
+        "gender": "male",
+        "occupation": "public relations specialist",
+        "education": "bachelor",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "considerate_host",
+        "baseline_mood": "reserved",
+        "openness": 0.45,
+        "conscientiousness": 0.78,
+        "extraversion": 0.71,
+        "agreeableness": 0.74,
+        "neuroticism": 0.39,
+        "social_energy": 0.73,
+        "social_anxiety": 0.35,
+        "self_disclosure_tendency": 0.71,
+        "approach_confidence": 0.67,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESFJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "reflect_then_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "name": "Dai Yun",
+      "role": "participant",
+      "profile": {
+        "id": 42,
+        "name": "Dai Yun",
+        "age": 30,
+        "gender": "female",
+        "occupation": "legal assistant",
+        "education": "master",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "curious_analyst",
+        "baseline_mood": "optimistic",
+        "openness": 0.77,
+        "conscientiousness": 0.46,
+        "extraversion": 0.34,
+        "agreeableness": 0.53,
+        "neuroticism": 0.5,
+        "social_energy": 0.38,
+        "social_anxiety": 0.56,
+        "self_disclosure_tendency": 0.43,
+        "approach_confidence": 0.48,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "INTP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "warm_selective",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "name": "Yan Xiaochuan",
+      "role": "participant",
+      "profile": {
+        "id": 43,
+        "name": "Yan Xiaochuan",
+        "age": 33,
+        "gender": "male",
+        "occupation": "music producer",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "energetic_doer",
+        "baseline_mood": "reflective",
+        "openness": 0.56,
+        "conscientiousness": 0.46,
+        "extraversion": 0.77,
+        "agreeableness": 0.47,
+        "neuroticism": 0.33,
+        "social_energy": 0.79,
+        "social_anxiety": 0.29,
+        "self_disclosure_tendency": 0.55,
+        "approach_confidence": 0.79,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESTP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "secure",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 44,
+      "name": "Ren Ziqing",
+      "role": "participant",
+      "profile": {
+        "id": 44,
+        "name": "Ren Ziqing",
+        "age": 24,
+        "gender": "female",
+        "occupation": "book editor",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "stable_communication"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "steady_caretaker",
+        "baseline_mood": "curious",
+        "openness": 0.53,
+        "conscientiousness": 0.7,
+        "extraversion": 0.39,
+        "agreeableness": 0.7,
+        "neuroticism": 0.39,
+        "social_energy": 0.43,
+        "social_anxiety": 0.51,
+        "self_disclosure_tendency": 0.7,
+        "approach_confidence": 0.47,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISFJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses emotional attunement and supportive questions",
+        "attachment_style": "warm_selective",
+        "conflict_style": "fact_first_then_emotion",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "name": "Pei Ran",
+      "role": "participant",
+      "profile": {
+        "id": 45,
+        "name": "Pei Ran",
+        "age": 27,
+        "gender": "male",
+        "occupation": "startup operator",
+        "education": "bachelor",
+        "city_life_stage": "busy_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "decisive_organizer",
+        "baseline_mood": "calm",
+        "openness": 0.67,
+        "conscientiousness": 0.77,
+        "extraversion": 0.69,
+        "agreeableness": 0.55,
+        "neuroticism": 0.41,
+        "social_energy": 0.71,
+        "social_anxiety": 0.37,
+        "self_disclosure_tendency": 0.47,
+        "approach_confidence": 0.71,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENTJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 46,
+      "name": "Shu Wen",
+      "role": "participant",
+      "profile": {
+        "id": 46,
+        "name": "Shu Wen",
+        "age": 30,
+        "gender": "female",
+        "occupation": "graduate student",
+        "education": "master",
+        "city_life_stage": "career_transition",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "kindness",
+          "civic_responsibility",
+          "emotional_support",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "volunteer",
+          "community_service",
+          "pets",
+          "public_event",
+          "urban_walk"
+        ],
+        "style": "expressive_present_moment",
+        "baseline_mood": "focused",
+        "openness": 0.51,
+        "conscientiousness": 0.52,
+        "extraversion": 0.71,
+        "agreeableness": 0.74,
+        "neuroticism": 0.39,
+        "social_energy": 0.73,
+        "social_anxiety": 0.35,
+        "self_disclosure_tendency": 0.71,
+        "approach_confidence": 0.67,
+        "preferred_venue_types": [
+          "volunteer_service_activity_space",
+          "pet_cafe",
+          "park",
+          "public_plaza"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ESFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "sensing",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "secure_but_slow",
+        "conflict_style": "soften_with_humor",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "community events",
+          "pet stories",
+          "volunteer tasks"
+        ],
+        "ideal_date_cues": [
+          "helping others",
+          "observing kindness",
+          "low-pressure teamwork"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests"
+        ],
+        "preferred_place_functions": [
+          "volunteer",
+          "community_service",
+          "pet_activity",
+          "group_gathering",
+          "open_social"
+        ],
+        "preferred_place_ids": [
+          "park_p01",
+          "plaza_p01",
+          "school_p05"
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "name": "Cheng Mo",
+      "role": "participant",
+      "profile": {
+        "id": 47,
+        "name": "Cheng Mo",
+        "age": 33,
+        "gender": "male",
+        "occupation": "coffee shop manager",
+        "education": "associate",
+        "city_life_stage": "graduate_to_work",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "literature",
+          "art",
+          "museum",
+          "film",
+          "quiet_conversation"
+        ],
+        "style": "calm_hands_on",
+        "baseline_mood": "warm",
+        "openness": 0.53,
+        "conscientiousness": 0.49,
+        "extraversion": 0.34,
+        "agreeableness": 0.53,
+        "neuroticism": 0.44,
+        "social_energy": 0.38,
+        "social_anxiety": 0.56,
+        "self_disclosure_tendency": 0.43,
+        "approach_confidence": 0.48,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTP",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "perceiving"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "warm_selective",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "recent books",
+          "gallery details",
+          "film endings"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 48,
+      "name": "Yao Jing",
+      "role": "participant",
+      "profile": {
+        "id": 48,
+        "name": "Yao Jing",
+        "age": 24,
+        "gender": "female",
+        "occupation": "industrial designer",
+        "education": "bachelor",
+        "city_life_stage": "local_returnee",
+        "dating_intent": "serious",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "attentive_connector",
+        "baseline_mood": "playful",
+        "openness": 0.74,
+        "conscientiousness": 0.69,
+        "extraversion": 0.77,
+        "agreeableness": 0.69,
+        "neuroticism": 0.33,
+        "social_energy": 0.79,
+        "social_anxiety": 0.29,
+        "self_disclosure_tendency": 0.77,
+        "approach_confidence": 0.72,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ENFJ",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "judging"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "independent_slow_trust",
+        "conflict_style": "needs_time_then_clear_talk",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 49,
+      "name": "Zhao Qiyue",
+      "role": "participant",
+      "profile": {
+        "id": 49,
+        "name": "Zhao Qiyue",
+        "age": 27,
+        "gender": "male",
+        "occupation": "language tutor",
+        "education": "bachelor",
+        "city_life_stage": "newcomer",
+        "dating_intent": "slow_burn",
+        "relationship_values": [
+          "emotional_depth",
+          "aesthetic_compatibility",
+          "patient_listening",
+          "novelty_and_growth"
+        ],
+        "interests": [
+          "dance",
+          "live_music",
+          "social_drinking",
+          "night_out",
+          "high_energy_social",
+          "party",
+          "friendship_building",
+          "urban_nightlife"
+        ],
+        "style": "high_energy_social",
+        "baseline_mood": "energetic",
+        "openness": 0.82,
+        "conscientiousness": 0.41,
+        "extraversion": 0.79,
+        "agreeableness": 0.67,
+        "neuroticism": 0.37,
+        "social_energy": 0.8910000000000001,
+        "social_anxiety": 0.17550000000000002,
+        "self_disclosure_tendency": 0.79,
+        "approach_confidence": 0.885,
+        "preferred_venue_types": [
+          "bookstore",
+          "art_gallery",
+          "community_cinema",
+          "library",
+          "coffee_house",
+          "nightlife",
+          "dance_club",
+          "live_music_bar",
+          "lounge_bar"
+        ],
+        "deal_breakers": [
+          "unsafe_space",
+          "noisy_overwhelming_environment",
+          "prefers_quiet_conversation",
+          "high_pressure_flirting",
+          "no_casual_fun"
+        ],
+        "mbti_label": "ENFP",
+        "mbti_profile": {
+          "energy": "extraverted",
+          "information": "intuitive",
+          "decision": "feeling",
+          "structure": "perceiving"
+        },
+        "communication_style": "initiates with situational comments and visible warmth; uses emotional attunement and supportive questions",
+        "attachment_style": "warm_selective",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "prefers_flexible_pacing"
+        ],
+        "conversation_starters": [
+          "the music tonight",
+          "do_you_like_to_dance",
+          "the_vibe_here",
+          "favorite_live_band",
+          "what_brings_you_out"
+        ],
+        "ideal_date_cues": [
+          "low-volume conversation",
+          "shared observation",
+          "thoughtful follow-up questions",
+          "vibrant_nightlife_venue",
+          "dance_floor",
+          "shared_music_experience",
+          "casual_flirting",
+          "spontaneous_fun"
+        ],
+        "avoidant_cues": [
+          "forced_intimacy",
+          "quiet_conversation_only",
+          "overly_serious_pacing",
+          "no_shared_activities"
+        ],
+        "preferred_place_functions": [
+          "literature",
+          "art",
+          "quiet_observation",
+          "shared_viewing",
+          "quiet_conversation"
+        ],
+        "preferred_place_ids": [
+          "culture_p05",
+          "food_p01",
+          "culture_p01",
+          "culture_p06",
+          "culture_p02"
+        ]
+      }
+    },
+    {
+      "id": 50,
+      "name": "Meng Xuan",
+      "role": "participant",
+      "profile": {
+        "id": 50,
+        "name": "Meng Xuan",
+        "age": 30,
+        "gender": "female",
+        "occupation": "civil servant",
+        "education": "master",
+        "city_life_stage": "settled_young_professional",
+        "dating_intent": "exploratory",
+        "relationship_values": [
+          "shared_growth",
+          "curiosity",
+          "long_term_routine",
+          "stable_communication"
+        ],
+        "interests": [
+          "cooking",
+          "language_learning",
+          "photography",
+          "music",
+          "creative_workshop"
+        ],
+        "style": "reliable_detail_keeper",
+        "baseline_mood": "optimistic",
+        "openness": 0.43,
+        "conscientiousness": 0.8,
+        "extraversion": 0.29,
+        "agreeableness": 0.58,
+        "neuroticism": 0.49,
+        "social_energy": 0.33,
+        "social_anxiety": 0.61,
+        "self_disclosure_tendency": 0.38,
+        "approach_confidence": 0.43,
+        "preferred_venue_types": [
+          "night_school",
+          "cooking_classroom",
+          "language_learning_classroom",
+          "music_classroom"
+        ],
+        "deal_breakers": [
+          "high_pressure_flirting",
+          "unsafe_space",
+          "pushy_intimacy"
+        ],
+        "mbti_label": "ISTJ",
+        "mbti_profile": {
+          "energy": "introverted",
+          "information": "sensing",
+          "decision": "thinking",
+          "structure": "judging"
+        },
+        "communication_style": "starts slowly, prefers one-on-one context and concrete cues; uses clear reasoning and practical observations before emotion",
+        "attachment_style": "anxious_cautious",
+        "conflict_style": "direct_repair",
+        "social_boundaries": [
+          "no_high_pressure_flirting",
+          "respect_personal_space",
+          "needs_low_pressure_exit",
+          "prefers_clear_plans"
+        ],
+        "conversation_starters": [
+          "class assignments",
+          "learning goals",
+          "practice routines"
+        ],
+        "ideal_date_cues": [
+          "working side by side",
+          "asking for feedback",
+          "making progress together"
+        ],
+        "avoidant_cues": [
+          "pushy_intimacy",
+          "mocking_interests",
+          "overly_loud_setting"
+        ],
+        "preferred_place_functions": [
+          "class",
+          "collaboration",
+          "cooking",
+          "language_learning",
+          "creative_workshop"
+        ],
+        "preferred_place_ids": [
+          "school_p02",
+          "school_p04",
+          "bar_p02",
+          "school_p06",
+          "game_p04",
+          "school_p05",
+          "school_p03"
+        ]
+      }
+    },
+    {
+      "id": 9001,
+      "name": "Third-Space Event Planner",
+      "role": "system_event_planner",
+      "profile": {
+        "id": 9001,
+        "name": "Third-Space Event Planner",
+        "role": "system_event_planner"
+      }
+    }
+  ],
+  "frames": [
+    {
+      "step": 0,
+      "time": "Step 0",
+      "agents": [
+        {
+          "id": 1,
+          "x": 50.0,
+          "y": 20.0,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 2,
+          "x": 53.81,
+          "y": 20.23,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 3,
+          "x": 57.56,
+          "y": 20.94,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 4,
+          "x": 61.2,
+          "y": 22.09,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 5,
+          "x": 64.67,
+          "y": 23.69,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 6,
+          "x": 67.91,
+          "y": 25.7,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 7,
+          "x": 70.88,
+          "y": 28.09,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 8,
+          "x": 73.54,
+          "y": 30.83,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 9,
+          "x": 75.84,
+          "y": 33.88,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 10,
+          "x": 77.75,
+          "y": 37.18,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 11,
+          "x": 79.24,
+          "y": 40.7,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 12,
+          "x": 80.28,
+          "y": 44.37,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 13,
+          "x": 80.87,
+          "y": 48.14,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 14,
+          "x": 80.99,
+          "y": 51.95,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 15,
+          "x": 80.63,
+          "y": 55.76,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 16,
+          "x": 79.82,
+          "y": 59.48,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 17,
+          "x": 78.55,
+          "y": 63.08,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 18,
+          "x": 76.85,
+          "y": 66.5,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 19,
+          "x": 74.74,
+          "y": 69.68,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 20,
+          "x": 72.26,
+          "y": 72.58,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 21,
+          "x": 69.43,
+          "y": 75.15,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 22,
+          "x": 66.32,
+          "y": 77.36,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 23,
+          "x": 62.96,
+          "y": 79.16,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 24,
+          "x": 59.4,
+          "y": 80.54,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 25,
+          "x": 55.7,
+          "y": 81.47,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 26,
+          "x": 51.91,
+          "y": 81.94,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 27,
+          "x": 48.09,
+          "y": 81.94,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 28,
+          "x": 44.3,
+          "y": 81.47,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 29,
+          "x": 40.6,
+          "y": 80.54,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 30,
+          "x": 37.04,
+          "y": 79.16,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 31,
+          "x": 33.68,
+          "y": 77.36,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 32,
+          "x": 30.57,
+          "y": 75.15,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 33,
+          "x": 27.74,
+          "y": 72.58,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 34,
+          "x": 25.26,
+          "y": 69.68,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 35,
+          "x": 23.15,
+          "y": 66.5,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 36,
+          "x": 21.45,
+          "y": 63.08,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 37,
+          "x": 20.18,
+          "y": 59.48,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 38,
+          "x": 19.37,
+          "y": 55.76,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 39,
+          "x": 19.01,
+          "y": 51.95,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 40,
+          "x": 19.13,
+          "y": 48.14,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 41,
+          "x": 19.72,
+          "y": 44.37,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 42,
+          "x": 20.76,
+          "y": 40.7,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 43,
+          "x": 22.25,
+          "y": 37.18,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 44,
+          "x": 24.16,
+          "y": 33.88,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 45,
+          "x": 26.46,
+          "y": 30.83,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 46,
+          "x": 29.12,
+          "y": 28.09,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 47,
+          "x": 32.09,
+          "y": 25.7,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 48,
+          "x": 35.33,
+          "y": 23.69,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 49,
+          "x": 38.8,
+          "y": 22.09,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 50,
+          "x": 42.44,
+          "y": 20.94,
+          "state": "observing",
+          "place": "simulation space"
+        },
+        {
+          "id": 9001,
+          "x": 46.19,
+          "y": 20.23,
+          "state": "observing",
+          "place": "simulation space"
+        }
+      ]
+    }
+  ],
+  "events": []
+}

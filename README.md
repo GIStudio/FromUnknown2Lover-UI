@@ -4,10 +4,11 @@ Standalone, static-first UI module for replaying the spatial encounters in the
 FromUnknown2Lover research prototype. It runs entirely in the browser: no
 account, API, database, or simulation runtime is required.
 
-The published module deliberately includes only the synthetic demo replay and
-editable map. Research-run exports and their source archives remain in the
-parent research repository so that a public demo site does not republish
-participant-like dialogue traces or experimental artifacts.
+The published module includes a profile-only AgentSociety initialization
+snapshot and an editable map. The source archive remains in the parent research
+repository; because it contains no per-step snapshots or interaction event
+stream, the public default does not invent movement, dialogue, or relationship
+changes.
 
 ## Use
 
@@ -47,9 +48,10 @@ GitHub Pages. The workflow deploys only after checks pass.
 
 ## Data and asset boundaries
 
-- `data/demo.json` and `data/map.json` are public demo data.
-- Real replay JSON, export archives, and parser scripts are intentionally not
-  shipped in this repository.
+- `data/agent-society-latest-snapshot.json` is the default public display data,
+  derived from the latest supplied profile-only replay sample.
+- `data/demo.json` remains available as a synthetic alternative; raw export
+  archives and parser scripts stay in the parent research repository.
 - Kenney RPG Urban and Tiny Town assets are CC0. Their source and licence
   records are retained under `assets/`.
 
