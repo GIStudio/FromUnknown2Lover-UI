@@ -1257,7 +1257,7 @@ async function loadDemo() {
   if (requestedReplay && !/^[a-zA-Z0-9._-]+\.json$/.test(requestedReplay)) {
     throw new Error(t("viewer.invalidReplayParam"));
   }
-  const replayFile = requestedReplay || "agent-society-latest-snapshot.json";
+  const replayFile = requestedReplay || "packed_encounter_14_20260719_064154.json";
   const response = await fetch(`./data/${replayFile}`);
   if (!response.ok) throw new Error(t("viewer.demoReadFailed", { status: response.status }));
   installData(await response.json(), requestedReplay ? t("viewer.fileLoaded", { file: replayFile }) : t("viewer.demoReady"));
