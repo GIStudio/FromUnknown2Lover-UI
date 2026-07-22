@@ -27,6 +27,15 @@
           <span id="run-name" data-i18n="viewer.loadingSimulation">Loading simulation…</span>
           <span class="meta-divider">/</span>
           <span id="agent-count">— AGENTS</span>
+          <label class="experiment-control" for="experiment-select">
+            <span data-i18n="viewer.experiment">EXPERIMENT</span>
+            <select id="experiment-select" aria-label="Choose experiment" data-i18n-aria-label="viewer.experimentAria">
+              <option value="e-a">E-A</option>
+              <option value="e-b">E-B</option>
+              <option value="e-c" selected>E-C</option>
+              <option value="" data-i18n="viewer.experimentLocal">LOCAL</option>
+            </select>
+          </label>
           <div class="language-switch" role="group" data-i18n-aria-label="language.label" aria-label="Interface language">
             <button type="button" data-language="en" aria-pressed="true">EN</button>
             <button type="button" data-language="zh" aria-pressed="false">中文</button>
@@ -229,6 +238,6 @@
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./app.js?v=20260722-packed-replay"></script>
+    <script type="module" src="./app.js?v=20260722-experiment-picker"></script>
   </body>
 </html>

@@ -180,6 +180,38 @@ h1 {
   box-shadow: 2px 2px 0 var(--line);
 }
 
+.experiment-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 5px;
+  border: 2px solid var(--line);
+  background: #e2c36e;
+  box-shadow: 2px 2px 0 var(--line);
+  color: var(--ink);
+  font-size: 7px;
+  font-weight: 900;
+}
+
+.experiment-control select {
+  min-width: 46px;
+  padding: 2px 14px 2px 4px;
+  border: 0;
+  border-left: 1px solid #8b7131;
+  border-radius: 0;
+  background: #fff5ce;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.experiment-control select:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
 .language-switch button {
   min-width: 34px;
   min-height: 24px;

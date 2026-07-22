@@ -4,9 +4,9 @@ Standalone, static-first UI module for replaying the spatial encounters in the
 FromUnknown2Lover research prototype. It runs entirely in the browser: no
 account, API, database, or simulation runtime is required.
 
-The published module includes a complete packed AgentSociety encounter replay
-and an editable map. Its accompanying summary confirms 30 Agents, 14 observed
-steps, complete Agent-step coverage, and 138 source-backed interactions.
+The published module includes three complete packed AgentSociety encounter
+replays on a shared editable map. Select the compact `E-A / E-B / E-C` labels
+in the UI; each source-backed replay covers 50 Agents across 14 observed steps.
 
 ## Use
 
@@ -46,8 +46,9 @@ GitHub Pages. The workflow deploys only after checks pass.
 
 ## Data and asset boundaries
 
-- `data/packed_encounter_14_20260719_064154.json` is the default public
-  display data; its companion `.summary.json` records coverage and audit facts.
+- `data/experiment-e-a.json`, `experiment-e-b.json`, and
+  `experiment-e-c.json` are the public experiment replays; E-C is the default.
+  Each companion `.summary.json` records coverage and audit facts.
 - `data/agent-society-latest-snapshot.json` and `data/demo.json` remain
   available as alternatives; raw export archives and parser scripts stay in the
   parent research repository.

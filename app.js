@@ -49,6 +49,7 @@ bindLanguageControls();
 const dom = {
   runName: document.querySelector("#run-name"),
   agentCount: document.querySelector("#agent-count"),
+  experimentSelect: document.querySelector("#experiment-select"),
   sceneName: document.querySelector("#scene-name"),
   bubbleDemoButton: document.querySelector("#bubble-demo-button"),
   bubbleDemoLabel: document.querySelector("#bubble-demo-label"),
@@ -97,6 +98,13 @@ const dom = {
   toast: document.querySelector("#toast"),
 };
 
+const EXPERIMENT_REPLAYS = Object.freeze({
+  "e-a": "experiment-e-a.json",
+  "e-b": "experiment-e-b.json",
+  "e-c": "experiment-e-c.json",
+});
+const DEFAULT_EXPERIMENT_ID = "e-c";
+
 const state = {
   data: null,
   map: null,
@@ -129,6 +137,7 @@ const state = {
   movementTimer: null,
   movementSpriteTimers: [],
   movementAnimations: [],
+  experimentId: DEFAULT_EXPERIMENT_ID,
 };
 
 const MOVEMENT_DURATION_MS = 900;
@@ -802,7 +811,9 @@ function render() {
     ? 0
     : (cursor / (state.data.frames.length - 1)) * 100;
 
-  dom.runName.textContent = state.data.meta.title;
+  dom.runName.textContent = state.experimentId
+    ? t("viewer.experimentName", { experiment: state.experimentId.toUpperCase() })
+    : state.data.meta.title;
   dom.agentCount.textContent = t("viewer.agentCount", { count: state.data.agents.length });
   dom.sceneName.textContent = state.data.meta.scene;
   dom.stepLabel.textContent = t("viewer.step", { step: String(frame.step).padStart(2, "0") });
@@ -1252,15 +1263,28 @@ function installData(raw, message = t("viewer.replayLoaded")) {
   showToast(message);
 }
 
+async function loadReplayFile(replayFile, message, experimentId = null) {
+  const response = await fetch(`./data/${replayFile}`);
+  if (!response.ok) throw new Error(t("viewer.demoReadFailed", { status: response.status }));
+  state.experimentId = experimentId;
+  dom.experimentSelect.value = experimentId || "";
+  installData(await response.json(), message);
+}
+
 async function loadDemo() {
-  const requestedReplay = new URLSearchParams(window.location.search).get("replay");
+  const params = new URLSearchParams(window.location.search);
+  const requestedReplay = params.get("replay");
   if (requestedReplay && !/^[a-zA-Z0-9._-]+\.json$/.test(requestedReplay)) {
     throw new Error(t("viewer.invalidReplayParam"));
   }
-  const replayFile = requestedReplay || "packed_encounter_14_20260719_064154.json";
-  const response = await fetch(`./data/${replayFile}`);
-  if (!response.ok) throw new Error(t("viewer.demoReadFailed", { status: response.status }));
-  installData(await response.json(), requestedReplay ? t("viewer.fileLoaded", { file: replayFile }) : t("viewer.demoReady"));
+  if (requestedReplay) {
+    await loadReplayFile(requestedReplay, t("viewer.fileLoaded", { file: requestedReplay }));
+    return;
+  }
+  const experimentId = params.get("experiment") || DEFAULT_EXPERIMENT_ID;
+  const replayFile = EXPERIMENT_REPLAYS[experimentId] || EXPERIMENT_REPLAYS[DEFAULT_EXPERIMENT_ID];
+  const resolvedExperimentId = EXPERIMENT_REPLAYS[experimentId] ? experimentId : DEFAULT_EXPERIMENT_ID;
+  await loadReplayFile(replayFile, t("viewer.experimentLoaded", { experiment: resolvedExperimentId.toUpperCase() }), resolvedExperimentId);
 }
 
 async function loadWorldMap() {
@@ -1292,6 +1316,17 @@ dom.dashboardOverviewButton.addEventListener("click", () => {
 dom.dashboardIndividualButton.addEventListener("click", () => {
   state.dashboardMode = "individual";
   render();
+});
+dom.experimentSelect.addEventListener("change", () => {
+  const experimentId = dom.experimentSelect.value;
+  const replayFile = EXPERIMENT_REPLAYS[experimentId];
+  if (!replayFile) return;
+  const url = new URL(window.location.href);
+  url.searchParams.delete("replay");
+  url.searchParams.set("experiment", experimentId);
+  window.history.replaceState({}, "", url);
+  loadReplayFile(replayFile, t("viewer.experimentLoaded", { experiment: experimentId.toUpperCase() }), experimentId)
+    .catch((error) => showToast(error.message));
 });
 dom.movementMode.addEventListener("change", () => {
   state.movementMode = normalizeMovementMode(dom.movementMode.value);
@@ -1353,6 +1388,8 @@ dom.dataFile.addEventListener("change", async (event) => {
   const [file] = event.target.files;
   if (!file) return;
   try {
+    state.experimentId = null;
+    dom.experimentSelect.value = "";
     installData(JSON.parse(await file.text()), t("viewer.fileLoaded", { file: file.name }));
   } catch (error) {
     showToast(t("viewer.importFailed", { error: error.message }));

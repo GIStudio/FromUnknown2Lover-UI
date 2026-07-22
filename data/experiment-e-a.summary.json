@@ -1,0 +1,291 @@
+{
+  "source": "/opt/agentsociety-exp/dating_third_space/workspace/hypothesis_1/experiment_1/run/event_full_20260722_155135",
+  "counts": {
+    "agents": 50,
+    "steps": 14,
+    "decisions": 700,
+    "interactions": 204,
+    "nonInteractions": 44,
+    "npcEvents": 7,
+    "relationships": 62
+  },
+  "coverage": {
+    "expectedAgentSteps": 700,
+    "observedAgentSteps": 700,
+    "complete": true,
+    "steps": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  "interactionOutcomes": {
+    "invitation_possible_but_not_yet": 3,
+    "ordinary_acquaintance": 62,
+    "successful_date_path": 139
+  },
+  "interactionDomains": {
+    "dating": 196,
+    "friendship": 8
+  },
+  "interactionsByStep": {
+    "1": 15,
+    "2": 17,
+    "3": 11,
+    "4": 12,
+    "5": 14,
+    "6": 16,
+    "7": 14,
+    "8": 19,
+    "9": 12,
+    "10": 15,
+    "11": 16,
+    "12": 19,
+    "13": 10,
+    "14": 14
+  },
+  "eventFlags": {
+    "emptyMessages": 0,
+    "secondMeetingIntentEvents": 142,
+    "contactExchangeEvents": 139,
+    "datingSuccessfulEvents": 139
+  },
+  "finalRelationshipProgress": {
+    "secondMeetingPairs": 23,
+    "contactExchangePairs": 23,
+    "datingSuccessfulPairs": 23,
+    "friendshipDomainPairs": 8,
+    "datingDomainPairs": 54
+  },
+  "evidenceAudit": {
+    "contactExchange": {
+      "verified": 0,
+      "unsupported": 138,
+      "ambiguous": 2,
+      "not_claimed": 64,
+      "unclaimed_evidence": 0
+    },
+    "dateAccepted": {
+      "verified": 0,
+      "unsupported": 0,
+      "ambiguous": 0,
+      "not_claimed": 204,
+      "unclaimed_evidence": 0
+    },
+    "dateInvitation": {
+      "verified": 0,
+      "unsupported": 0,
+      "ambiguous": 0,
+      "not_claimed": 204,
+      "unclaimed_evidence": 0
+    },
+    "relationshipConfirmed": {
+      "verified": 0,
+      "unsupported": 0,
+      "ambiguous": 0,
+      "not_claimed": 204,
+      "unclaimed_evidence": 0
+    },
+    "secondMeeting": {
+      "verified": 12,
+      "unsupported": 54,
+      "ambiguous": 76,
+      "not_claimed": 62,
+      "unclaimed_evidence": 0
+    }
+  },
+  "relationshipStageFunnel": {
+    "stranger": 0,
+    "recognized": 0,
+    "acquaintance": 62,
+    "mutual_interest": 0,
+    "invitation_made": 0,
+    "date_accepted": 0,
+    "ongoing_dating": 0,
+    "relationship_confirmed": 0
+  },
+  "venueUsage": [
+    {
+      "venueId": "school_p05",
+      "name": "Volunteer Service Activity Space",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 110,
+      "interactions": 46
+    },
+    {
+      "venueId": "school_p02",
+      "name": "Cooking Classroom",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 98,
+      "interactions": 36
+    },
+    {
+      "venueId": "park_p03",
+      "name": "Pet Activity Zone",
+      "buildingId": "central_park_01",
+      "decisionVisits": 65,
+      "interactions": 20
+    },
+    {
+      "venueId": "food_p01",
+      "name": "Slow Stay Coffee Shop",
+      "buildingId": "food_building_01",
+      "decisionVisits": 67,
+      "interactions": 17
+    },
+    {
+      "venueId": "bar_p02",
+      "name": "Live Music Bar",
+      "buildingId": "bar_building_01",
+      "decisionVisits": 53,
+      "interactions": 12
+    },
+    {
+      "venueId": "school_p08",
+      "name": "Floral Design Studio",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 57,
+      "interactions": 10
+    },
+    {
+      "venueId": "culture_p05",
+      "name": "Community Bookstore",
+      "buildingId": "culture_reading_building_01",
+      "decisionVisits": 37,
+      "interactions": 8
+    },
+    {
+      "venueId": "school_p03",
+      "name": "Photography Class and Club",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 41,
+      "interactions": 8
+    },
+    {
+      "venueId": "culture_p04",
+      "name": "Art Gallery",
+      "buildingId": "culture_reading_building_01",
+      "decisionVisits": 21,
+      "interactions": 7
+    },
+    {
+      "venueId": "game_p01",
+      "name": "Board Game Cafe",
+      "buildingId": "game_entertainment_building_01",
+      "decisionVisits": 19,
+      "interactions": 7
+    },
+    {
+      "venueId": "culture_p03",
+      "name": "Astronomy Experience Center",
+      "buildingId": "culture_reading_building_01",
+      "decisionVisits": 19,
+      "interactions": 6
+    },
+    {
+      "venueId": "food_p02",
+      "name": "Pet Cafe",
+      "buildingId": "food_building_01",
+      "decisionVisits": 17,
+      "interactions": 6
+    },
+    {
+      "venueId": "school_p04",
+      "name": "Language Learning Classroom",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 18,
+      "interactions": 6
+    },
+    {
+      "venueId": "bar_p03",
+      "name": "Sports Viewing Bar",
+      "buildingId": "bar_building_01",
+      "decisionVisits": 21,
+      "interactions": 4
+    },
+    {
+      "venueId": "school_p06",
+      "name": "Music Classroom",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 27,
+      "interactions": 4
+    },
+    {
+      "venueId": "school_p01",
+      "name": "Dance Classroom",
+      "buildingId": "night_school_building_01",
+      "decisionVisits": 11,
+      "interactions": 3
+    },
+    {
+      "venueId": "sport_p03",
+      "name": "Climbing Gym",
+      "buildingId": "sports_building_01",
+      "decisionVisits": 9,
+      "interactions": 2
+    },
+    {
+      "venueId": "culture_p02",
+      "name": "Small Community Museum",
+      "buildingId": "culture_reading_building_01",
+      "decisionVisits": 3,
+      "interactions": 1
+    },
+    {
+      "venueId": "park_p04",
+      "name": "Lawn Social Zone",
+      "buildingId": "central_park_01",
+      "decisionVisits": 4,
+      "interactions": 1
+    },
+    {
+      "venueId": "bar_p04",
+      "name": "Dance Club",
+      "buildingId": "bar_building_01",
+      "decisionVisits": 1,
+      "interactions": 0
+    },
+    {
+      "venueId": "food_p06",
+      "name": "Dessert Shop",
+      "buildingId": "food_building_01",
+      "decisionVisits": 1,
+      "interactions": 0
+    },
+    {
+      "venueId": "game_p05",
+      "name": "Billiards Bar",
+      "buildingId": "game_entertainment_building_01",
+      "decisionVisits": 1,
+      "interactions": 0
+    }
+  ],
+  "coordinateSystem": {
+    "type": "relative_metric_grid",
+    "unit": "meter",
+    "origin": "top_left",
+    "x_direction": "east",
+    "y_direction": "south",
+    "site_width_m": 240,
+    "site_height_m": 360,
+    "coordinate_reference": "facility_centroid",
+    "accuracy": "conceptual"
+  },
+  "notes": [
+    "eventFlags count repeated event records; finalRelationshipProgress counts unique final relationship pairs.",
+    "Non-interaction decisions reconstruct agent state and location but are not emitted as interaction trace events.",
+    "Venue centroids and scattered agent positions remain in the source 240x360 meter top-left coordinate system.",
+    "Evidence audit fields are derived from dialogue text and never overwrite raw simulator claims."
+  ]
+}
