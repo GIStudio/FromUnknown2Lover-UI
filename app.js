@@ -161,8 +161,9 @@ function updateMusicControl() {
 }
 
 updateRoadMovementControl();
-dom.backgroundMusic.volume = 0.32;
+dom.backgroundMusic.volume = 0.12;
 updateMusicControl();
+dom.backgroundMusic.play().catch(() => updateMusicControl());
 
 const toneLabel = (tone) => t(`viewer.tone.${tone}`, {}, tone);
 

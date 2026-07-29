@@ -7,10 +7,10 @@ const [html, app, music] = await Promise.all([
   stat(new URL("../assets/audio/moon-and-sun.mp3", import.meta.url)),
 ]);
 
-assert.match(html, /<audio id="background-music" preload="metadata" loop>/);
-assert.doesNotMatch(html, /<audio[^>]*\bautoplay\b/);
+assert.match(html, /<audio id="background-music" preload="metadata" loop autoplay>/);
 assert.match(html, /src="\.\/assets\/audio\/moon-and-sun\.mp3"/);
-assert.match(app, /dom\.backgroundMusic\.volume = 0\.32/);
+assert.match(app, /dom\.backgroundMusic\.volume = 0\.12/);
+assert.match(app, /dom\.backgroundMusic\.play\(\)\.catch\(\(\) => updateMusicControl\(\)\)/);
 assert.match(app, /await dom\.backgroundMusic\.play\(\)/);
 assert.match(app, /dom\.backgroundMusic\.pause\(\)/);
 assert.ok(music.size > 1_000_000);

@@ -42,14 +42,14 @@
           </div>
           <a class="character-link" href="./characters.html" data-i18n="viewer.characterGenerator">Character generator</a>
           <a class="editor-link" href="./editor.html" data-i18n="viewer.mapEditor">Map editor</a>
-          <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="Play background music" data-i18n-aria-label="viewer.musicPlay">
+          <button class="music-toggle is-active" id="music-toggle" type="button" aria-pressed="true" aria-label="Pause background music" data-i18n-aria-label="viewer.musicPause">
             <span aria-hidden="true">♫</span>
-            <span id="music-label" data-i18n="viewer.musicOff">MUSIC OFF</span>
+            <span id="music-label" data-i18n="viewer.musicOn">MUSIC ON</span>
           </button>
           <button class="guide-button" id="guide-button" type="button" aria-haspopup="dialog" aria-controls="usage-guide" aria-expanded="false" data-i18n="viewer.guideOpen">Guide</button>
           <label class="import-button" for="data-file" data-i18n="viewer.importReplay">Import replay JSON</label>
           <input id="data-file" type="file" accept="application/json,.json" />
-          <audio id="background-music" preload="metadata" loop>
+          <audio id="background-music" preload="metadata" loop autoplay>
             <source src="./assets/audio/moon-and-sun.mp3" type="audio/mpeg" />
           </audio>
         </div>
@@ -245,6 +245,6 @@
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script type="module" src="./app.js?v=20260729-background-music"></script>
+    <script type="module" src="./app.js?v=20260729-autoplay-music"></script>
   </body>
 </html>
