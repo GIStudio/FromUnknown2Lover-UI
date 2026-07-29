@@ -73,6 +73,9 @@ const dom = {
   playButton: document.querySelector("#play-button"),
   speedSelect: document.querySelector("#speed-select"),
   dataFile: document.querySelector("#data-file"),
+  musicToggle: document.querySelector("#music-toggle"),
+  musicLabel: document.querySelector("#music-label"),
+  backgroundMusic: document.querySelector("#background-music"),
   guideButton: document.querySelector("#guide-button"),
   usageGuide: document.querySelector("#usage-guide"),
   focusEmpty: document.querySelector("#focus-empty"),
@@ -149,7 +152,17 @@ function updateRoadMovementControl() {
   dom.roadMovementButton.setAttribute("aria-pressed", String(state.roadMovement));
 }
 
+function updateMusicControl() {
+  const isPlaying = !dom.backgroundMusic.paused;
+  dom.musicToggle.classList.toggle("is-active", isPlaying);
+  dom.musicToggle.setAttribute("aria-pressed", String(isPlaying));
+  dom.musicToggle.setAttribute("aria-label", t(isPlaying ? "viewer.musicPause" : "viewer.musicPlay"));
+  dom.musicLabel.textContent = t(isPlaying ? "viewer.musicOn" : "viewer.musicOff");
+}
+
 updateRoadMovementControl();
+dom.backgroundMusic.volume = 0.32;
+updateMusicControl();
 
 const toneLabel = (tone) => t(`viewer.tone.${tone}`, {}, tone);
 
@@ -1317,6 +1330,19 @@ dom.dashboardIndividualButton.addEventListener("click", () => {
   state.dashboardMode = "individual";
   render();
 });
+dom.musicToggle.addEventListener("click", async () => {
+  try {
+    if (dom.backgroundMusic.paused) {
+      await dom.backgroundMusic.play();
+    } else {
+      dom.backgroundMusic.pause();
+    }
+  } catch (error) {
+    showToast(t("viewer.musicUnavailable"));
+  }
+});
+dom.backgroundMusic.addEventListener("play", updateMusicControl);
+dom.backgroundMusic.addEventListener("pause", updateMusicControl);
 dom.experimentSelect.addEventListener("change", () => {
   const experimentId = dom.experimentSelect.value;
   const replayFile = EXPERIMENT_REPLAYS[experimentId];
@@ -1429,6 +1455,7 @@ document.addEventListener("visibilitychange", () => {
 
 window.addEventListener("i18n:change", ({ detail }) => {
   state.mapRenderer?.setLanguage(detail.language);
+  updateMusicControl();
   if (state.data) render();
 });
 

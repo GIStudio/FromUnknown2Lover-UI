@@ -25,6 +25,9 @@ The three browser surfaces are:
 Use **Import replay JSON** on the replay page to load an exported run locally.
 The file is parsed in the browser and is never uploaded by this module.
 
+Use the **MUSIC OFF** button in the header to start or pause the bundled
+background track. Playback is off by default and begins only after a click.
+
 The replay view also includes **Relation Pulse**: select an Agent to see their
 current dyads' aggregated familiarity, trust, and mutual-attraction minimum as
 three stepwise lines. Short markers above affected Agents show changes between

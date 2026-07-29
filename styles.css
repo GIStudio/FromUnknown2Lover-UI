@@ -237,6 +237,7 @@ h1 {
 .import-button,
 .editor-link,
 .character-link,
+.music-toggle,
 .guide-button {
   margin-left: 8px;
   padding: 9px 12px 8px;
@@ -270,9 +271,28 @@ h1 {
   text-transform: uppercase;
 }
 
+.music-toggle {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #4e7b55;
+  color: #fff8df;
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.music-toggle.is-active {
+  background: #234e55;
+  box-shadow: inset 0 0 0 2px #f6d975, 3px 3px 0 var(--line);
+}
+
 .import-button:hover,
 .editor-link:hover,
 .character-link:hover,
+.music-toggle:hover,
 .guide-button:hover {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--line);
